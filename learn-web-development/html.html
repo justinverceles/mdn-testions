@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML - Learn web development | MDN Testions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <header aria-label="MDN Testions header">
+    </header>
+    <nav>
+      <button type="button" id="nav" aria-haspopup="true" aria-label="Show menu"></button>
+      <ul aria-hidden="true">
+        <li><a href="../index.html">Home</a></li>
+        <li>Learn web development
+          <ol>
+            <li><a href="../learn-web-development/html.html">HTML — Structuring the Web</a></li>
+            <li><a href="../learn-web-development/css.html">CSS — Styling the Web</a></li>
+            <li><a href="../learn-web-development/javascript.html">JavaScript — Dynamic client-side scripting</a></li>
+            <li><a href="../learn-web-development/web-forms.html">Web forms — Working with user data</a></li>
+            <li><a href="../learn-web-development/accessibility.html">Accessibility — Making the web usable by everyone</a></li>
+          </ol>
+        </li>
+      </ul>
+      <a href="#contents" aria-label="To the contents"></a>
+    </nav>    
+
+    <main>
+      <h1>HTML</h1>
+      <section id="contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href=#introduction-to-html>Introduction to HTML</a>
+            <ol>
+              <li><a href="#getting-started-with-html">Getting started with HTML</a></li>
+              <li><a href="#the-head">The head</a></li>
+              <li><a href="#html-text-fundamentals">HTML text fundamentals</a></li>
+              <li><a href="#creating-hyperlinks">Creating hyperlinks</a></li>
+              <li><a href="#advanced-text-formatting">Advanced text formatting</a></li>
+              <li><a href="#document-and-website-structure">Document and website structure</a></li>
+              <li><a href="#debugging-html">Debugging HTML</a></li>
+            </ol>
+          </li>
+          <li><a href="#multimedia-and-embedding">Multimedia and embedding</a>
+            <ol>
+              <li><a href="#images-in-html">Images in HTML</a></li>
+              <li><a href="#video-and-audio-content">Video and audio content</a></li>
+              <li><a href="#iframes">iframes</a></li>
+              <li><a href="#vector-graphics">Vector graphics</a></li>
+              <li><a href="#responsive-images">Responsive images</a></li>
+            </ol>
+          </li>
+          <li><a href="#html-tables">HTML tables</a>
+            <ol>
+              <li><a href="#html-table-basics">HTML table basics</a></li>
+              <li><a href="#html-table-advanced-features-and-accessibility">HTML table advanced features and accessibility</a></li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="introduction-to-html">
+        <h2>Introduction to HTML</h2>
+        <h3 id="getting-started-with-html">Getting started with HTML</h3>
+        <ol>
+          <li>
+            <p>What does HTML stand for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Hypertext Markup Language</p>
+            </div>
+          </li>
+          <li>
+            <p>Label the three parts of the following HTML element:</p>
+            <pre><code>&lt;p&gt;My cat is very grumpy&lt;/p&gt;</code></pre>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><img src="../media/grumpy-cat-small-invert.png" alt='A diagram showing the aforementioned element labelled. The first &lt;p&gt; is the opening tag, the last &lt;/p&gt; is the closing tag, and the text "My cat is very grumpy" is the content. The entire thing is the element.'></p>
+            </div>
+            <ol>
+              <li>
+                <p>How would you put the word "very" in bold using HTML?</p> 
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>&lt;p&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy&lt;/p&gt;</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What are the differences between block-level elements and inline elements?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A block-level element appears on a separate line from the preceding and following content. It wouldn’t appear nested within an inline element but it might within another block element. Block-level elements are usually structural elements on the page. </p>
+              <p>An inline element is contained within a block-level element, and does not appear on a separate line from other content. Inline elements are typically associated with text.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call an element that consists of a single tag?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An empty element or a void element</p>
+            </div>
+          </li>
+          <li>
+            <p>How might you add a <code>class</code> of <code>editor-note</code> to the element from Question 2? What is this sort of construction called?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;p class="editor-note"&gt;My cat is very grumpy&lt;/p&gt;</code></pre>
+              <p>This is called an attribute (with <code>editor-note</code> being its value).</p>
+            </div>
+            
+          </li>
+          <li>
+            <p>How would you code a link <a href="https://www.google.com" title="Google" target="_blank">Go to Google</a> which links to Google, shows a tooltip reading "Google" when hovered over, and opens in a new tab?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;a href="google.com" title="Google" target="_blank"&gt;Go to Google&lt;/a&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you code a disabled text input? What do you call this kind of attribute?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="text" disabled="disabled"&gt;</code></pre> or <pre><code>&lt;input type="text" disabled&gt;</code></pre>
+              <p>This is called a boolean attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the purpose of <code>&lt;!DOCTYPE html&gt;</code> at the top of every HTML document?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Used to act as a link to a set of rules the HTML had to follow to be considered good HTML. Now it’s just a historical artifact that needs to be included for everything to work right. This is the shortest string of characters that counts as a valid doctype.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you specify the character set for your document so that it includes most characters from the vast majority of human written languages?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;meta charset="utf-8"&gt;</code> in the <code>&lt;head&gt;&lt;/head&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you give a webpage a title to be displayed in the tab?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Put it in between <code>&lt;title&gt;&lt;/title&gt;</code> tags in the <code>&lt;head&gt;&lt;/head&gt;</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>How does the HTML parser deal with whitespace?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The HTML parser reduces all whitespace down to a single space.</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you write the following characters without them being mistaken for HTML? What are these called?</p>
+              <ul>
+                <li>&lt;</li>
+                <li>&gt;</li>
+                <li>&quot;</li>
+                <li>&apos;</li>
+                <li>&amp;</li>
+              </ul>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>These are called character references.</p>
+                <ul>
+                  <li><code>&amp;lt;</code></li>
+                  <li><code>&amp;gt;</code></li>
+                  <li><code>&amp;quot;</code></li>
+                  <li><code>&amp;apos;</code></li>
+                  <li><code>&amp;amp;</code></li>
+                </ul>
+            </div>
+          </li>
+          <li>
+            <p>How do you write comments in HTML?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;!-- This is a comment --&gt;</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="the-head">The head</h3>
+        <ol>
+          <li>
+            <p>How would you code metadata about the author of a page and a description of the page, into the head? Why is this useful to do?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+<pre><code>&lt;meta name="author" content="Justin Verceles"&gt;
+&lt;meta name="description" content="This is a website"&gt;</code></pre>
+              <p>It can be useful to have this information. Content management systems (CMS) have facilities to automatically extract this sort of information. Keywords in the description also aid in Search Engine Optimization (SEO).</p>
+            </div>
+          </li>
+          <li>
+            <p>Searching for "MDN Web Docs" on Google shows relevant subpages below the main homepage link. What are these called and how can you configure them for your own website?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>These are called sitelinks. They can be configured using the <a href="https://search.google.com/search-console/welcome?utm_source=about-page" target="_blank">Google Search Console</a>.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are Twitter and Facebook's respective properietary metadata protocols?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Facebook uses Open Graph Data. Twitter uses Twitter Cards.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call the custom icon that displays next to a title in a browser tab and in a bookmark? How do you add this to your site?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;link rel="shortcut icon" href="favicon.ico" type="image/x-icon"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>In what format should you save this icon? Why?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Browsers will support favicons in formats like <code>.png</code> or <code>.gif</code> but saving it as an <code>.ico</code> will ensure it works as far back as IE6.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you add CSS and JavaScript to your HTML through the head?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+                <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you set the primary language of the document to US English? What about of a single inline element to Japanese?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>lang</code> attribute e.g.</p>
+              <pre><code>&lt;html lang="en-US"&gt;&lt;/html&gt;</code></pre> or <pre><code>&lt;span lang="ja"&gt;&lt;/span&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What are these codes called?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>ISO 639-1 to specify language and ISO 3166-1 to specify country.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="html-text-fundamentals">HTML text fundamentals</h3>
+        <ol>
+          <li>
+            <p>What element is used to designate a paragraph?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;p&gt;&lt;/p&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What elements are used to designate headings?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>(closing tags omitted for brevity) <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, and <code>&lt;h6&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What's the maximum number of heading levels you should use per page?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>three</p>
+            </div>
+          </li>
+          <li>
+            <p>How many top-level headings should you use per page?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>one</p>
+            </div>
+          </li>
+          <li>
+            <p>Why should you write semantic markup?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Structure makes it easier for people to find what they’re looking for if they’re just scanning the page. Makes it easier for visually impaired users to use your website with their screen readers. Headings are good for SEO because search engines consider headings important keywords. Makes it easier to target elements with CSS and Javascript.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you write an unordered list?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;ul&gt;
+  &lt;li&gt;milk&lt;/li&gt;
+  &lt;li&gt;eggs&lt;/li&gt;
+&lt;ul&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you write an ordered list?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;ol&gt;
+  &lt;li&gt;Make a left on Main St.&lt;li&gt;
+  &lt;li&gt;Turn right on Primary Blvd.&lt;li&gt;
+&lt;ol&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Can you nest lists?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Yes.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the differences between emphasis and strong importance? What elements are used for them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Emphasis (<code>&lt;em&gt;&lt;/em&gt;</code>) changes the meaning of the sentence and is styled by default with italics.</p>
+              <p>Strong importance (<code>&lt;strong&gt;&lt;/strong&gt;</code>) doesn't change the meaning — it just stresses a certain word. It is styled by default as bold text.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the elements used for bold, underline and italics? What are the more recently defined semantic roles for these elements?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;b&gt;&lt;/b&gt;</code>, <code>&lt;u&gt;&lt;/u&gt;</code>, and <code>&lt;i&gt;&lt;/i&gt;</code>. These elements should be used to convey meanings that are traditionally used to convey, respectively:</p>
+                <ul>
+                  <li>Keywords, product names, lead sentences&hellip;</li>
+                  <li>Proper names, misspellings&hellip;</li>
+                  <li>Foreign words, taxonomic designations, technical terms, thoughts&hellip;</li>
+                </ul>
+            </div>
+          </li>
+          <li>
+            <p>What do you call elements that don't affect semantics? Should they be used?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Presentational elements. They shouldn't be used. It's better to use CSS for presentation.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is problematic about the underline element and how is this solved?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Underlines are strongly associated with links. You can use CSS to make the underline look less like a link.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="creating-hyperlinks">Creating hyperlinks</h3>
+        <ol>
+          <li>
+            <p>What is important to remember about the <code>title</code> attribute?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Its content is largely inaccessible to users who rely on screen readers, keyboard controls, or touchscreens.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a block-level link?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Enclose the block-level element in <code>&lt;a&gt;&lt;/a&gt;</code> tags.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you link to something in the same directory as the HTML file?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Just the filename.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you link to something in a subdirectory from where the HTML file is?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use <code>/</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you link to something in a parent directory from where the HTML file is?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use <code>../</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call one specific part of an HTML document? How do you link to one?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Document fragment. Let's say you're linking to a specific heading in the document. You would give that heading an <code>id</code> attribute, then link to the heading using a <code>#</code> followed by the <code>id</code> value. e.g.</p>
+              <pre><code>&lt;a href="#chapter-one"&gt;Chapter One&lt;/a&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What does URL stand for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Uniform Resource Locator</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the difference between an absolute URL and a relative URL?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An absolute URL points to an absolute location on the web, including protocol and domain name. A relative URL points relative to the file you're linking from.</p>
+            </div>
+          </li>
+          <li>
+            <p>Is it better to use absolute URLs or relative URLs?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Relative URLs because using an absolute URL requires the browser to look up the location on the DNS (Domain Name System). Relative URLs also tend to be shorter and easier to read when scanning code.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are some best practices to follow when writing link text?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Don't repeat link text. Don't use phrases like "links to" because users can tell it's a link either by looking at it or their screen reader tells them. Don't use the URL in the link text because they look ugly and a screen reader will read it aloud letter-for-letter.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are some best practices to follow when writing links that point to non-HTML resources?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Indicate in the link text that it's a non-HTML resource. If it's a download, indicate the size of the file and use the <code>download</code> attribute to give the file a default name.</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you write a link that sets up an email to lentils@gmail.com and legumes@gmail.com, a bcc to alfalfa@gmail.com, with a subject, "Regarding the letter you sent me", and a body, "Very nice penmanship"? How do you include those spaces in the link and what is that called?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>mailto:lentils@gmail.com?cc=legumes@gmail.com&bcc=alfalfa@gmail.com&subject=Regarding%20the%20letter%20you%20sent%20me&body=Very%20nice%20penmanship</code></pre> or <pre><code>mailto:lentils@gmail.com,legumes@gmail.com?bcc=alfalfa@gmail.com&subject=Regarding%20the%20letter%20you%20sent%20me&body=Very%20nice%20penmanship</code></pre>
+              <p>The <code>%20</code>s are an example of percent encoding.</p>
+            </div>
+          </li>
+          <li>
+            <p>How much is optional in an email link?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Everything is optional except the <code>mailto:</code> which just opens up your email.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="advanced-text-formatting">Advanced text formatting</h3>
+        <ol>
+          <li>
+            <p>How would you code the following description list?</p>
+              <dl>
+                <dt>hot dog</dt>
+                <dd>a kind of food</dd>
+                <dt>water</dt>
+                <dd>a kind of drink</dd>
+                <dt>A</dt>
+                <dd>the first letter of the English alphabet.</dd>
+                <dd>a grade, from 90% to 100%</dd>
+              </dl>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+                <pre><code>&lt;dl&gt;
+  &lt;dt&gt;hot dog&lt;/dt&gt;
+  &lt;dd&gt;a kind of food&lt;/dd&gt;
+  &lt;dt&gt;water&lt;/dt&gt;
+  &lt;dd&gt;a kind of drink&lt;/dt&gt;
+  &lt;dt&gt;A&lt;/dt&gt;
+  &lt;dd&gt;the first letter of the English alphabet&lt;/dd&gt;
+  &lt;dd&gt;a grade, from 90% to 100%&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What elements are used for blockquotes and inline quotations, respectively?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code> and <code>&lt;q&gt;&lt;/q&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you code the following?</p>
+            <p>From <cite>The Canterbury Tales</cite>:</p>
+            <blockquote lang="enm"><p>
+              Whan Zephirus eek with his swete breeth<br>
+              Inspired hath in every holt and heeth<br>
+              The tendre croppes, and the yonge sonne
+            </p></blockquote>
+
+            <p>
+              According to <a href="http://www.columbia.edu/dlc/garland/deweever/menu.htm"><cite>The Chaucer Name Dictionary</cite></a>, Zephirus <q cite="http://www.columbia.edu/dlc/garland/deweever/menu.htm">was the ruler of the winds</q>.
+            </p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;p&gt;From &lt;cite&gt;The Canterbury Tales&lt;/cite&gt;:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;
+  Whan Zephirus eek with his swete breeth&lt;br&gt;
+  Inspired hath in every holt and heeth&lt;br&gt;
+  The tendre croppes, and the yonge sonne
+&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+  According to &lt;a href="http://www.columbia.edu/dlc/garland/deweever/menu.htm"&gt;&lt;cite&gt;The Chaucer Name Dictionary&lt;/cite&gt;&lt;/a&gt;, 
+  Zephirus &lt;q cite="http://www.columbia.edu/dlc/garland/deweever/menu.htm"&gt;was the ruler of the winds&lt;/q&gt;.
+&lt;/p&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What do browsers, screen readers, etc. do with the value of the <code>cite</code> attribute?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Nothing</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you indicate NASA to be an acronym short for "National Aeronautics and Space Administration"?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;abbr title="National Aeronautics and Space Administration"&gt;NASA&lt;/abbr&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What element is used for marking up contact details?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;address&gt;&lt;/address&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you code the following?</p>
+            <p>My birthday is on the 2<sup>nd</sup> of May 2002. Caffeine's chemical formula is C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>My birthday is on the 2&lt;sup&gt;nd&lt;/sup&gt; of May 2002.
+Caffeine's chemical formula is C&lt;sub&gt;8&lt;/sub&gt;H&lt;sub&gt;10&lt;/sub&gt;N&lt;sub&gt;4&lt;/sub&gt;O&lt;sub&gt;2&lt;/sub&gt;.</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What element is used for marking up generic pieces of computer code?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;code&gt;&lt;/code&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What element is used for retaining whitespace in code?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;pre&gt;&lt;/pre&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What element is used for marking up variable names?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;var&gt;&lt;/var&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What element is used for marking up keyboard input?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;kbd&gt;&lt;/kbd&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What element is used for marking up the output of a computer program?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;samp&gt;&lt;/samp&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the code to mark up the following in a machine readable format:</p>
+            <ul>
+              <li>January 7, 2016</li>
+              <li>January 2016</li>
+              <li>January 20</li>
+              <li>7:30pm</li>
+              <li>7:30pm, 1.856 seconds</li>
+              <li>7:30pm, January 20, 2016</li>
+              <li>7:30pm, January 20, 2016 plus one hour timezone offset</li>
+              <li>The fourth week of 2016</li>
+            </ul>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;time datetime="2016-01-07"&gt;January 7, 2016&lt;/time&gt;
+&lt;time datetime="2016-01"&gt;January 2016&lt;/time&gt;
+&lt;time datetime="01-20"&gt;January 20&lt;/time&gt;
+&lt;time datetime="19:30"&gt;7:30pm&lt;/time&gt;
+&lt;time datetime="19:30:01.856"&gt;7:30pm, 1.856 seconds&lt;/time&gt;
+&lt;time datetime="2016-01-20T19:30"&gt;7:30pm, January 20, 2016&lt;/time&gt;
+&lt;time datetime="2016-01-20T19:30+01:00"&gt;7:30pm, January 20, 2016 plus one hour timezone offset&lt;/time&gt;
+&lt;time datetime="2016-W04"&gt;The fourth week of 2016&lt;/time&gt;</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="document-and-website-structure">Document and website structure</h3>
+        <ol>
+          <li>
+            <p>What are the basic sections of a webpage? What tags denote them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt>header</dt>
+                <dd><code>&lt;header&gt;&lt;/header&gt;</code></dd>
+                <dt>navigation bar</dt>
+                <dd><code>&lt;nav&gt;&lt;/nav&gt;</code></dd>
+                <dt>main content</dt>
+                <dd><code>&lt;main&gt;&lt;/main&gt;</code></dd>
+                <dt>sidebar</dt>
+                <dd><code>&lt;aside&gt;&lt;/aside&gt;</code></dd>
+                <dt>footer</dt>
+                <dd><code>&lt;footer&gt;&lt;/footer&gt;</code></dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>Where does the navigation bar go in relation to the header?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It could be part of the header, or separate from the header which might be better for accessibility (screen readers can read them better)</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the purpose of the sidebar?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>For information directly or indirectly related to the main content. Could be used as a secondary navigation system.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the purpose of the footer?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>For common information (like in the header) but not critical for the website itself. Can also contain links for quick access to popular content.</p>
+            </div>
+          </li>
+          <li>
+            <p>How is main content subdivided?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>into <code>&lt;section&gt;&lt;/section&gt;</code>s and <code>&lt;article&gt;&lt;/article&gt;</code>s. Articles are for grouping related content that makes sense on its own without the rest of the page. Sections are for grouping related content that designates one piece of functionality. Sections can be divided into articles or the other way around.</p>
+            </div>
+          </li>
+          <li>
+            <p>How is <code>&lt;header&gt;&lt;/header&gt;</code> used?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>If it's a child of <code>&lt;body&gt;&lt;/body&gt;</code>, it's the global header for the website. If it's a child of <code>&lt;section&gt;&lt;/section&gt;</code> or <code>&lt;article&gt;&lt;/article&gt;</code>, it's a specific header for that section (contains an h1-h6 and possibly information about the author and the date the article was published).</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the non-semantic wrappers?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;div&gt;&lt;/div&gt;</code>s for block-level, <code>&lt;span&gt;&lt;/span&gt;</code>s for inline</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you code a line break?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;br&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you code a horizontal rule?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;hr&gt;</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What is information architecture?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Working out what content you want to put on a whole website, what pages you need, and how they should be arranged and link to one another for good UX</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the steps to planning a simple website?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ol>
+                <li>Note what content should be common to every page.</li>
+                <li>Sketch what the structure of each page should look like.</li>
+                <li>Brainstorm all other content (not common to each page) you want to have on your website.</li>
+                <li>Try to sort all these content items into groups, to get an idea of what content should be together on different pages.</li>
+                <li>Sketch a sitemap, each page being a bubble with the content they will contain, and arrows showing how the pages will be related.</li>
+              </ol>
+            </div>
+          </li>
+        </ol>
+        <h3 id="debugging-html">Debugging HTML</h3>
+        <ol>
+          <li>
+            <p>What are the two main types of errors in code?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Syntax errors (basically spelling errors) and logic errors (code doesn't work as intended)</p>
+            </div>
+            <ol>
+              <li>
+                <p>Which of these does HTML not suffer from as much? Why?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Browsers parse HTML permissively, meaning it will correct syntax errors.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="multimedia-and-embedding">
+        <h2>Multimedia and embedding</h2>
+        <h3 id="images-in-html">Images in HTML</h3>
+        <ol>
+          <li>
+            <p>How do you embed an image <code>dinosaur.png</code> into a page?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;img src="dinosaur.png"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What should you always make sure of first before you try to display an image on your page?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You own the image; you have written explicit permission from the owner; you have ample proof that the image is in the public domain</p>
+            </div>
+          </li>
+          <li>
+            <p>What is hotlinking? Why shouldn't you do it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Hotlinking means pointing your <code>src</code> attribute to an image on someone else's website. This is stealing bandwidth and is illegal. You also have no control over whether the image is changed or removed.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call elements like the image element or the video element whose content and size is defined by an external resource?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Replaced elements</p>
+            </div>
+          </li>
+          <li>
+            <p>Why should you use alternative text? How do you code it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>For when the image doesn't load, for visually impaired people, and to provide text for search engines to utilize. To code it, you use the <code>alt</code> attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>What should you write in alternative text?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>If the image provides significant information, the alt text should provide that same information, unless that information is already in the main text. If the image is in <code>&lt;a&gt;&lt;/a&gt;</code>s, put accessible link text.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make an image load smoother using <code>width</code> and <code>height</code> attributes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Provide <code>width</code> and <code>height</code> attributes with the same dimensions as the image, that way the space is already loaded before the image loads.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you give a piece of content a caption?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Put the content in <code>&lt;figure&gt;&lt;/figure&gt;</code> tags, then put the <code>&lt;figcaption&gt;&lt;/figcaption&gt;</code> tags containing the caption inside the <code>&lt;figure&gt;&lt;/figure&gt;</code> tags.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="video-and-audio-content">Video and audio content</h3>
+        <ol>
+          <li>
+            <p>How do you embed a video <code>rabbit320.webm</code> into a page with fallback text?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;video src="rabbit320.webm" controls&gt;
+  &lt;p&gt;
+    Your browser doesn't support HTML5 video. Here is &lt;a href="rabbit320.webm"&gt;a link to the video&lt;/a&gt; instead.
+  &lt;/p&gt;
+&lt;/video&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What are formats like MP3, MP4, and WebM called, and what do they do? Draw a diagram for how this can be visualized.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>They are called container formats. They contain the audio tracks, the video tracks, and any metadata such as the codecs used. They can be visualized like so:</p>
+              <img src="../media/ContainersAndTracks.svg" alt="A visualization of a container format, featuring one large box with four boxes inside it: one to hold the metadata (movie title, duration, track types, and so forth); another one to hold the audio tracks; another one to hold the video tracks; and a final one to hold the text tracks.">
+            </div>
+          </li>
+          <li>
+            <p>What do codecs do?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A codec encodes and decodes the media so that the file size is smaller.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you embed a video with sources <code>rabbit320.webm</code> and <code>rabbit32.mp4</code> with fallback text?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;video controls&gt;
+  &lt;source src="rabbit320.webm" type=video/webm&gt;
+  &lt;source src="rabbit320.mp4" type=video/mp4&gt;
+  &lt;p&gt;
+    Your browser doesn't support HTML5 video. Here is &lt;a href="rabbit320.webm"&gt;a link to the video&lt;/a&gt; instead.
+  &lt;/p&gt;
+&lt;/video&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you embed audio with sources <code>viper.mp3</code> and <code>viper.ogg</code> with fallback text?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;audio controls&gt;
+  &lt;source src="viper.mp3" type="audio/mp3"&gt;
+  &lt;source src="viper.ogg" type="audio/ogg"&gt;
+  &lt;p&gt;
+    Your browser doesn't support HTML5 video. Here is &lt;a href="viper.mp3"&gt;a link to the audio&lt;/a&gt; instead.
+  &lt;/p&gt;
+&lt;/video&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you control the physical size of a video?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Change the <code>width</code> or <code>height</code> attributes. Videos will maintain their apsect ratios.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control whether or not audio or video autoplays?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>boolean <code>autoplay</code> attribute</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control whether or not audio or video loops</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>boolean <code>loop</code> attribute</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control whether or not audio or video has its sound turned off by default?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>boolean <code>muted</code> attribute</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you give a video a picture to display before it plays?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>poster="<em>path to the image</em>"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control how the browser buffers audio or video?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>preload</code> attribute. Values include <code>none</code> (it doesn't buffer the file), <code>auto</code> (it does buffer the file), and <code>metadata</code> (it only buffers the file's metadata).</p>
+            </div>
+          </li>
+          <li>
+            <p>How might you add subtitles to a video according to the folowing rules?</p>
+            <ul>
+              <li>From 4 to 5 seconds, the subtitle is "Hey"</li>
+              <li>From 6 to 7 seconds, the subtitle is "Welcome to my video"</li>
+            </ul>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+                <p>HTML:</p>
+                <pre><code>&lt;video controls&gt;
+  <em>&hellip;</em>
+  &lt;track src="subtitles.vtt" kind="subtitles" srclang="en"&gt;
+&lt;/video&gt;</code></pre>
+                <p>WebVTT:</p>
+                <pre><code>WEBVTT
+
+00:00:04.000 --> 00:00:05.000
+Hey
+
+00:00:06.000 --> 00:00:07.000
+Welcome to my video</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What are the most comon kinds of cues?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt>subtitles</dt>
+                <dd>for people who don't understand the words in the audio</dd>
+                <dt>captions</dt>
+                <dd>for people who can't hear the audio</dd>
+                <dt>timed descriptions</dt>
+                <dd>for people who can't see the video — spoken by the media player</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>What values does the <code>kind</code> attribute take?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>subtitles</code>, <code>captions</code>, and <code>descriptions</code></p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="iframes">iframes</h3>
+        <ol>
+          <li>
+            <p>How might you embed a YouTube video into a page?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You can do this by clicking the "Share" button under a YouTube video then clicking "Embed" and copying the code.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the security concerns with using iframes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>iframes are a common attack vector for hackers to maliciously modify your webpage or trick people into revealing sensitive information. Clickjacking is when a hacker embeds an invisible iframe in your webpage (or embed your document into their malicious website) to capture users' interactions, misleading users or stealing sensitive data.</p>
+            </div>
+          </li>
+          <li>
+            <p>How can you safely use iframes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Only embed when absolutely necessary. If you made it, double-check it anyways. If someone else made it, assume it's dangerous until proven otherwise.</p>
+              <p>Use HTTPS, which reduces the chance that remote content was tampered with in transit, and prevents embedded content from accessing your content in your parent document and vice versa. HTTPS requires a security certificate which can be expensive, but never embed third-party content with HTTP. At best, users will get a scary warning from this.</p>
+              <p>Always use the <code>sandbox</code> attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>How can you give an attribute multiple values?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Separate them with spaces in the quotes e.g. <code>class="val1 val2 val3"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What two values should never both be added to the <code>sandbox</code> attribute? Why?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>allow-scripts</code> and <code>allow-same-origin</code>. This allows embedded content to bypass the same-origin policy which prevents it from executing scripts, and then use JavaScript to turn off <code>sandbox</code> altogether.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you prevent other websites from embedding your content in their webpages?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Content Security Policy (CSP) provides a set of HTTP headers (metadata sent along with your webpages when they're served from a server). You can configure your web server to send an appropriate X-Frame-Options header to prevent other websites from embedding your content.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="vector-graphics">Vector graphics</h3>
+        <ol>
+          <li>
+            <p>What's the difference between a raster image and a vector image?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A raster image is defined by a grid of pixels whereas vector images use algorithms to make shapes.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is SVG?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Stands for Scalable Vector Graphics. It's an XML-based markup language for describing vector images.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are some advantages of SVG?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ul>
+                <li>SVG doesn't get pixelated when you zoom in.</li>
+                <li>Text in an SVG image remains accessible.</li>
+                <li>SVG lends itself well to styling and scripting, because each component of the image is an element.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>What are some disadvantages of SVG?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ul>
+                <li>SVG file sizes can get big quickly.</li>
+                <li>It's more difficult to create complex images with SVG.</li>
+                <li>Older browsers don't support SVG.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>How can you add SVG using <code>&lt;img&gt;</code>? What are the pros and cons of this method?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Include the path to the SVG file in the <code>src</code>.</p>
+              <p>Pros:</p>
+              <ul>
+                <li>The browser caches the image so it loads faster after the first time you use it.</li>
+                <li>The syntax is simple and familiar</li>
+                <li>You can use alt text.</li>
+              </ul>
+              <p>Cons:</p>
+              <ul>
+                <li>You can't style or script the components.</li>
+                <li>You can't style it without using inline CSS in the SVG file.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>How can you make SVG in an image responsive to browsers that don't support SVG?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Put a raster version in <code>src</code> and the SVG version in <code>srcset</code>. Older browsers won't recognize <code>srcset</code> and will load the raster image.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call it when you put SVG code directly in your HTML? What are the pros and cons of doing this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>That's called inline SVG, or inlining SVG.</p>
+              <p>Pros:</p>
+              <ul>
+                <li>The components can be scripted and styled.</li>
+                <li>Saves an HTTP request.</li>
+              </ul>
+              <p>Cons:</p>
+              <ul>
+                <li>The browser can't cache it.</li>
+                <li>Duplicating the image can be resource-intensive.</li>
+                <li>It makes the file bigger.</li>
+                <li>You can include fallback using <code>&lt;foreignobject&gt;&lt;/foreignobject&gt;</code> in the SVG with <code>display="none"</code>, but browsers that support SVG will still download any fallback images.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>How is the origin of web content defined?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The scheme (protocol), host (domain), and port.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the pros and cons of embedding SVG in an iframe?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>There are no pros.</p>
+              <p>Cons:</p>
+              <ul>
+                <li>You can't script it with JavaScript unless your webpage and the SVG have the same origin.</li>
+                <li>iframes have a fallback mechanism, but it only works if browsers lack support for iframes altogether.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+        <h3 id="responsive-images">Responsive images</h3>
+        <ol>
+          <li>
+            <p>What is the difference between an art direction problem and a resolution switching problem?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An art direction problem involves wanting to change the image to suit different display sizes. A resolution switching problem involves wanting to change the size or resolution of the image.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the two kinds of resolution switching problems?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ul>
+                <li>Different sizes</li>
+                <li>Same size, different resolution</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>You have an image <code>dinosaur.jpg</code> with intrinsic dimensions 600 by 300 pixels, and an alternate image <code>dinosaur-alt.jpg</code> with intrinsic dimensions 300 by 150 pixels. You want <code>dinosaur-alt.jpg</code> to display when the width of the screen is 600 pixels or less, and <code>dinosaur.jpg</code> any other time.</p>
+            <p>How do you code this to happen? If the browser doesn't support these functionalities, how do you make <code>dinosaur.jpg</code> the fallback? What kind of problem is this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>This is a resolution switching problem, specifically one where you want the image to change size.</p>
+              <pre><code>&lt;img
+  srcset="dinosaur.jpg 600w,
+          dinosaur-alt.jpg 300w"
+  sizes="(max-width: 600px) 300px,
+          600px"
+  src="dinosaur.jpg"
+  alt="a dinosaur"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What unit can you not use for slot width?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>percentages (%)</p>
+                </div>
+              </li>
+              <li>
+                <p>How does the browser figure this out?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>First, it looks at the width of the screen. Then, it finds the first media condition in the <code>sizes</code> list to be true. Then, it looks at the slot size associated with that media condition. Finally, it loads the image in <code>srcset</code> with a size equal to the slot size or, if there isn't one, the first image bigger than the chosen slot size.</p>
+                </div>
+              </li>
+              <li>
+                <p>What if you wanted <code>dinosaur.jpg</code>to display only when the resolution of the screen is 2 device pixels per CSS pixel, displaying the same picture as fallback? What kind of problem is this?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>This is a resolution switching problem, specifically one where you want the image to change resolution.</p>
+                  <pre><code>&lt;img
+  srcset="dinosaur-alt.jpg,
+          dinosaur.jpg 2x"
+  src="dinosaur.jpg"
+  alt="a dinosaur"&gt;</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What if you wanted <code>dinosaur.jpg</code> to display only when the width of the screen is 600px or more, and a cropped version <code>dionsaur-cropped.jpg</code> to display only when the width of the screen is 599px or less, displaying <code>dinosaur.jpg</code> as fallback? What kind of problem is this?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>This is an art direction problem.</p>
+                  <pre><code>&lt;picture&gt;
+  &lt;source media="min-width: 600px" srcset="dinosaur.jpg"&gt;
+  &lt;source media="max-width: 599px" srcset="dinosaur-cropped.jpg"&gt;
+  &lt;img src="dinosaur.jpg" alt="a dinosaur"&gt;
+&lt;/picture&gt;</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>Why can't any of this be done with CSS or JavaScript?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The browser preloads all the images before the main parser has time to load and interpret the CSS and JavaScript, to cut loading time.</p>
+                </div>
+              </li>
+              <li>
+                <p>What if you wanted the browser to be able to choose between a version of the dinosaur image in <code>.jpg</code> vs. <code>.webp</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>&lt;picture&gt;
+  &lt;source type="image/jpg" srcset="dinosaur.jpg"&gt;
+  &lt;source type="image/webp" srcset="dinosaur.webp"&gt;
+  &lt;img src="dinosaur.jpg" alt="a dinosuar"&gt;
+&lt;/picture&gt;</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What line do you put in the head of the document to force mobile browsers to tell the truth about their viewport width?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;meta name="viewport" content="width=device-width"</code></pre>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="html-tables">
+        <h2>HTML tables</h2>
+        <h3 id="html-table-basics">HTML table basics</h3>
+        <ol>
+          <li>
+            <p>How would you code the following table?</p>
+            <table>
+              <tr>
+                <th colspan="2">Animals</th>
+              </tr>
+              <tr>
+                <th colspan="2">Hippopotamus</th>
+              </tr>
+              <tr>
+                <th rowspan="2">Horse</th>
+                <td>Mare</td>
+              </tr>
+              <tr>
+                <td>Stallion</td>
+              </tr>
+              <tr>
+                <th colspan="2">Crocodile</th>
+              </tr>
+              <tr>
+                <th rowspan="2">Chicken</th>
+                <td>Hen</td>
+              </tr>
+              <tr>
+                <td>Rooster</td>
+              </tr>
+            </table>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th colspan="2"&gt;Animals&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th colspan="2"&gt;Hippopotamus&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th rowspan="2"&gt;Horse&lt;/th&gt;
+    &lt;td&gt;Mare&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Stallion&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&Gt;
+    &lt;th colspan="2"&gt;Crocodile&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th rowspan="2"&gt;Chicken&lt;/th&gt;
+    &lt;td&gt;Hen&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&lt;
+    &lt;td&gt;Rooster&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How would you code the following table whose second column has a yellow background color?</p>
+            <table>
+              <colgroup>
+                <col>
+                <col style="background-color: yellow;">
+              </colgroup>
+              <tr>
+                <th>foods</th>
+                <th>drinks</th>
+              </tr>
+              <tr>
+                <td>bread</td>
+                <td>water</td>
+              </tr>
+              <tr>
+                <td>eggs</td>
+                <td>milk</td>
+              </tr>
+            </table>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;table&gt;
+  &lt;colgroup&gt;
+    &lt;col&gt;
+    &lt;col style="background-color: yellow;"&gt;
+  &lt;/colgroup&gt;
+  &lt;tr&gt;
+    &lt;th&gt;foods&lt;/th&gt;
+    &lt;th&gt;drinks&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;bread&lt;/td&gt;
+    &lt;td&gt;water&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;eggs&lt;/td&gt;
+    &lt;td&gt;milk&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="html-table-advanced-features-and-accessibility">HTML table advanced features and accessibility</h3>
+        <ol>
+          <li>
+            <p>How do you put a caption on a table? Where does this go in the markup?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>&lt;caption&gt;&lt;/caption&gt;</code> element, with the content of the caption in between the tags. It should be the first child of <code>&lt;table&gt;&lt;/table&gt;</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>What elements can you use to give more structure to tables? What are the advantages of doing this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;thead&gt;&lt;/thead&gt;</code>, <code>&lt;tbody&gt;&lt;/body&gt;</code>, and <code>&lt;tfoot&gt;&lt;/tfoot&gt;</code>. These don't actually do anything for accessibility, as screen readers don't do anything with them, but they make it easier to style parts of the table.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the purpose of a table footer? Where does this go in the markup?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It could be used as a "sum" or "total" row. It can go just under the opening <code>&lt;table&gt;</code> tag or just before the closing <code>&lt;/table&gt;</code> tag. Either way, it renders just below the table.</p>
+            </div>
+          </li>
+          <li>
+            <p>Where does the table header element go in the markup?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Just under the opening <code>&lt;table&gt;</code> tag, or just under the <code>&lt;colgroup&gt;&lt;/colgroup&gt;</code> and <code>&lt;col&gt;</code>s if you have them.</p>
+            </div>
+          </li>
+          <li>
+            <p>Should you nest tables?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>No, not if you don't absolutely have to. It makes for confusing markup, and is less accessible to screen readers.</p>
+            </div>
+          </li>
+          <li>
+            <p>How could you indicate to a screen reader how a header relates to some table data?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You could put <code>scope</code> attributes on the <code>&lt;th&gt&lt;/th&gt;</code>s (values: <code>col</code>, <code>row</code>, <code>colgroup</code>, <code>rowgroup</code>). Or, you could put <code>id</code> attributes on the <code>&lt;th&gt;&lt;/th&gt;</code>s and then give the associated <code>&lt;td&gt;&lt;/td&gt;</code>s <code>headers</code> attributes with those <code>id</code>s as values (can have muliple values, like <code>headers="location haircut"</code> if those are the two associated headers).</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Accessibility - Learn web development | MDN Testions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <header aria-label="MDN Testions header">
+      <!--bright: -70; contrast: 100 THEN constrast: 50-->
+    </header>
+    <nav>
+      <button type="button" id="nav" aria-haspopup="true" aria-label="Show menu"></button>
+      <ul aria-hidden="true">
+        <li><a href="../index.html">Home</a></li>
+        <li>Learn web development
+          <ol>
+            <li><a href="../learn-web-development/html.html">HTML — Structuring the Web</a></li>
+            <li><a href="../learn-web-development/css.html">CSS — Styling the Web</a></li>
+            <li><a href="../learn-web-development/javascript.html">JavaScript — Dynamic client-side scripting</a></li>
+            <li><a href="../learn-web-development/web-forms.html">Web forms — Working with user data</a></li>
+            <li><a href="../learn-web-development/accessibility.html">Accessibility — Making the web usable by everyone</a></li>
+          </ol>
+        </li>
+      </ul>
+      <a href="#contents" aria-label="To the contents"></a>
+    </nav>
+    
+    <main>
+      <h1>Accessibility</h1>
+      <section id="contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#wai-aria-basics">WAI-ARIA basics</a></li>
+        </ol>
+      </section>
+
+      <section id="wai-aria-basics">
+        <h2>WAI-ARIA basics</h2>
+        <ol>
+          <li>
+            <p>What does WAI-ARIA stand for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Web Accessibility Initiative - Accessible Rich Internet Applications</p>
+            </div>
+          </li>
+          <li>
+            <p>What is WAI-ARIA?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A specification that defines a set of additional HTML attributes that can be applied to elements to provide additional semantics and improve accessiblity wherever it is lacking</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the three main features defined in the WAI-ARIA spec?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt>Roles</dt>
+                <dd>Define what an element is or does</dd>
+                <dt>Properties</dt>
+                <dd>Define properties of elements, which can be used to give them extra meaning or semantics</dd>
+                <dt>States</dt>
+                <dd>Define the current conditions of elements</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>How do you define an element as having navigation functionality?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>role="navigation"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you define an element as having search functionality?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>role="search"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you define an element as having article functionality?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>role="article"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you define an element as having the functionality of an <code>&lt;aside&gt;&lt;/aside&gt;</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>role="complementary"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Regarding questions 4 through 7, why would these be necessary when elements like <code>&lt;nav&gt;&lt;/nav&gt;</code>, <code>&lt;article&gt;&lt;/article&gt;</code> and so on exist?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The search function doesn't have a related semantic tag and, anyways, some older browsers (most notably IE8) don't recognize the semantics of HTML5 elements.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you give an element a descriptive label to be read out by a screen reader?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>aria-label</code> attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call areas of a website with dynamically updating content?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Live regions</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so a screen reader alerts a user when some content is being dynamically updated?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>aria-live</code> attribute.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What values does this take?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <dl>
+                    <dt><code>off</code></dt>
+                    <dd>The default; updates should not be announced</dd>
+                    <dt><code>polite</code></dt>
+                    <dd>Updates should only be announced if the user is idle</dd>
+                    <dt><code>assertive</code></dt>
+                    <dd>Updates should be announced to the user as soon as possible</dd>
+                  </dl>
+                </div>
+              </li>
+              <li>
+                <p>What if, more specifically, you wanted the screen reader to read out the entire element every time some of its content was updated (not just the bit that was updated)?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Add <code>aria-atomic="true"</code> to that same element.</p>
+                </div>  
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make elements that are not normally tabbable, tabbable?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>tabindex="0"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make elements that are not normally tabbable, able to receive focus programmatically e.g. via JavaScript or as the target of links?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>tabindex="-1"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you turn an element into a live region, so that changes to it are read aloud?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>role="alert"</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>How does this semantically identify the element?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>An alert message (time/context sensitive information)</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make it so when some content is updated, both additions and removals are read aloud?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>aria-relevant="all"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you get a screen reader to tell users that a certain form control is required and needs to be filled in?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>aria-required="true"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you identify a non-<code>&lt;label&gt;&lt;/label&gt;</code> element as a label for a certain form control?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>aria-labelledby</code> attribute whose value is the <code>id</code> of the element to act as a label.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you identify an element as text which describes a certain form control?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>aria-describedby</code> attribute whose value is the <code>id</code> of the element to act as a description.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you indicate to a screen reader that a form control is disabled?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>aria-disabled="true"</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>Why might this be necessary if there's already a <code>disabled</code> attribute?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Many browsers skip past disabled form fields and they won't be read out by screen readers, but will in some cases be perceived.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you define an element as having button functionality?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>role="button"</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>When might this be necessary?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>If it's a custom button widget, screen readers won't see the elements as buttons otherwise.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>If you have a tab system (not related to the key), say, in a navigation bar, how would you identify, respectively, the entire tab list, each individual tab, and the container for the resources associated with each tab?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>role="tablist"</code>, <code>role="tab"</code>, and <code>role="tabpanel"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you indicate the current "selected" state of various widgets?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>aria-selected="true"</code> or <code>aria-selected="false"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you hide an element from being read out by a screen reader?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>aria-hidden="true"</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you specify to screen readers that an element is part of a series, and how many items that series has?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>aria-setsize</code> attribute on each item.</p>
+            </div>
+            <ol>
+              <li>
+                <p>How do you specify what position in a series an element is in?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>aria-posinset</code> attribute.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

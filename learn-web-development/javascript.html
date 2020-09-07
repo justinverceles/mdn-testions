@@ -1,0 +1,2534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript - Learn web development | MDN Testions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <header aria-label="MDN Testions header">
+    </header>
+    <nav>
+      <button type="button" id="nav" aria-haspopup="true" aria-label="Show menu"></button>
+      <ul aria-hidden="true">
+        <li><a href="../index.html">Home</a></li>
+        <li>Learn web development
+          <ol>
+            <li><a href="../learn-web-development/html.html">HTML — Structuring the Web</a></li>
+            <li><a href="../learn-web-development/css.html">CSS — Styling the Web</a></li>
+            <li><a href="../learn-web-development/javascript.html">JavaScript — Dynamic client-side scripting</a></li>
+            <li><a href="../learn-web-development/web-forms.html">Web forms — Working with user data</a></li>
+            <li><a href="../learn-web-development/accessibility.html">Accessibility — Making the web usable by everyone</a></li>
+          </ol>
+        </li>
+      </ul>
+      <a href="#contents" aria-label="To the contents"></a>
+    </nav>
+
+    <main>
+      <h1>JavaScript</h1>
+      <section id="contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#javascript-first-steps">JavaScript first steps</a>
+            <ol>
+              <li><a href="#variables">Variables</a></li>
+              <li><a href="#numbers-and-operators">Numbers and operators</a></li>
+              <li><a href="#strings">Strings</a></li>
+              <li><a href="#useful-string-methods">Useful string methods</a></li>
+              <li><a href="#arrays">Arrays</a></li>
+            </ol>
+          </li>
+          <li><a href="#javascript-building-blocks">JavaScript building blocks</a>
+            <ol>
+              <li><a href="#conditionals">Conditionals</a></li>
+              <li><a href="#looping-code">Looping code</a></li>
+              <li><a href="#functions">Functions</a></li>
+              <li><a href="#introduction-to-events">Introduction to events</a></li>
+            </ol>
+          </li>
+          <li><a href="#introducing-javascript-objects">Introducing JavaScript objects</a>
+            <ol>
+              <li><a href="#object-basics">Object basics</a></li>
+              <li><a href="#objectoriented-javascript-for-beginners">Object-oriented JavaScript for beginners</a></li>
+              <li><a href="#object-prototypes">Object prototypes</a></li>
+              <li><a href="#inheritance-in-javascript">Inheritance in JavaScript</a></li>
+              <li><a href="#working-with-json">Working with JSON</a></li>
+            </ol>
+          </li>
+          <li><a href="#asynchronous-javascript">Asynchronous JavaScript</a>
+            <ol>
+              <li><a href="#general-asynchronous-programming-concepts">General asynchronous programming concepts</a></li>
+              <li><a href="#callbacks">Callbacks</a></li>
+              <li><a href="#timeouts-and-intervals">Timeouts and intervals</a></li>
+              <li><a href="#promises">Promises</a></li>
+              <li><a href="#async-and-await"><code>async</code> and <code>await</code></a></li>
+            </ol>
+          </li>
+          <li><a href="#clientside-web-apis">Client-side web APIs</a>
+            <ol>
+              <li><a href="#introduction-to-web-apis">Introduction to web APIs</a></li>
+              <li><a href="#manipulating-documents">Manipulating documents</a></li>
+              <li><a href="#fetching-data-from-the-server">Fetching data from the server</a></li>
+              <li><a href="#thirdparty-apis">Third-party APIs</a></li>
+              <li><a href="#drawing-graphics">Drawing graphics</a></li>
+              <li><a href="#video-and-audio-apis">Video and audio APIs</a></li>
+              <li><a href="#clientside-storage">Client-side storage</a></li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="javascript-first-steps">
+        <h2>JavaScript first steps</h2>
+        <h3 id="variables">Variables</h3>
+        <ol>
+          <li>
+            <p>What is declaring a variable?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Creating the variable</p>
+            </div>
+          </li>
+          <li>
+            <p>What is initializing a variable?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>When you first give the variable a value</p>
+            </div>
+          </li>
+          <li>
+            <p>What are some differences between <code>var</code> and <code>let</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>var</code> lets you hoist, meaning you can initialize before declaring. Also, <code>var</code> lets you declare the same variable multiple times; with <code>let</code>, if you want to reassign a variable, you do something like <code>myVar = "value"</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>What's wrong with the following variable names?</p>
+            <ul>
+              <li><code>1</code></li>
+              <li><code>a</code></li>
+              <li><code>_12</code></li>
+              <li><code>myage</code></li>
+              <li><code>MYAGE</code></li>
+              <li><code>var</code></li>
+              <li><code>Document</code></li>
+              <li><code>skjfndskjfnbdskjfb</code></li>
+              <li><code>thisisareallylongandstupidvariablenameman</code></li>
+            </ul>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt><code>1</code></dt>
+                <dd>Number at the start of the name (causes an error)</dd>
+                <dt><code>a</code></dt>
+                <dd>Doesn't say anything about what data it contains</dd>
+                <dt><code>_12</code></dt>
+                <dd>Underscore at the start (can be confused as this is used in some JS constructs)</dd>
+                <dt><code>myage</code></dt>
+                <dd>Doesn't follow camel case</dd>
+                <dt><code>MYAGE</code></dt>
+                <dd>Doesn't follow camel case</dd>
+                <dt><code>var</code></dt>
+                <dd>A reserved word in JS</dd>
+                <dt><code>Document</code></dt>
+                <dd>A reserved word in JS</dd>
+                <dt><code>skjfndskjfnbdskjfb</code></dt>
+                <dd>Doesn't say anything about what data it contains</dd>
+                <dt><code>thisisareallylongandstupidvariablenameman</code></dt>
+                <dd>Too long</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>What are the five primary data types in JavaScript?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ul>
+                <li>Strings</li>
+                <li>Numbers</li>
+                <li>Booleans</li>
+                <li>Objects</li>
+                <li>Arrays</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>What does "dynamic typing" mean?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You don't need to specify what data type a variable will contain.</p>
+            </div>
+          </li>
+          <li>
+            <p>What special operator returns the data type of a variable? What's the syntax for its use?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>typeof myNum;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What keyword is used for declaring a constant variable?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>const</code></p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="numbers-and-operators">Numbers and operators</h3>
+        <ol>
+          <li>
+            <p>What method is used to round a number to a certain number of decimal places? What is the syntax for its use?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>myNum.toFixed(5); //rounds myNum to 5 decimal places</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What constructor returns the number version of some value (e.g. <code>'74'</code> to <code>74</code>)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>Number('74');</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you increment or decrement a numerical variable value?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use <code>++</code> to increment and <code>--</code> to decrement.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What syntax for these operators increments/decrements, and then returns?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>++myNum</code> and <code>--myNum</code></p>
+                </div>
+              </li>
+              <li>
+                <p>What syntax for these operators returns, and then increments/decrements?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>myNum++</code> and <code>myNum--</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is the difference between <code>===</code> and <code>==</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>===</code> compares data types; <code>==</code> doesn't.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="strings">Strings</h3>
+        <ol>
+          <li>
+            <p>How do you escape characters in a string?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Backslash (<code>\</code>) before the character</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you concatenate strings?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use a plus sign (<code>+</code>) e.g. <code>'Hello' + ' world!'</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What happens when you try to concatenate strings and numbers?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The number is converted to a string, and then they concatenate.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you return a number as a string using a method (e.g. <code>74</code> as <code>'74'</code>)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>myNum.toString();</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What is a template literal (template string)? How are they denoted?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A newer syntax that provides more flexible, easier to read syntax. It is denoted with backticks (<code>`</code>).</p>
+            </div>
+          </li>
+          <li>
+            <p>What construct is used when including variables/expressions within template strings (equivalent to concatenating standard string literals with variables/expressions)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>${}</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you use the ternary operator (conditional operator)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code><em>condition</em> ? <em>expression to execute if condition is truthy</em> : <em>expression to execute if condition is falsy</em></code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you denote line breaks in string literals?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>\n</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you denote line breaks in template literals?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Line breaks in the code are preserved in template literals.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="useful-string-methods">Useful string methods</h3>
+        <ol>
+          <li>
+            <p>How do you return the length of a string?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>myStr.length</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you return the fifth character of a string <code>'mozilla'</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>'mozilla'[4]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you use a method to return the index of the substring <code>'zilla'</code> in <code>'mozilla'</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>'mozilla'.indexOf('zilla')</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What does this method return if the substring doesn't exist within the string?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>-1</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How would you use a method to return the <code>'moz'</code> in <code>'mozilla'</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>'mozilla'.slice(0,3)</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>How might you use this same method to return the <code>'zilla'</code> in <code>'mozilla'</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>'mozilla'.slice(2)</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How would you use a method to return a string as all lowercase?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>myStr.toLowerCase()</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you use a method to return a string as all uppercase?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>myStr.toUpperCase()</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you use a method to return a string <code>'mozilla'</code> but with the substring <code>'moz'</code> replaced with <code>'van'</code> to return <code>'vanilla'</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>'mozilla'.replace('moz','van')</code></p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="arrays">Arrays</h3>
+        <ol>
+          <li>
+            <p>How would you create an array called <code>groceries</code> which contains the strings <code>'bread'</code>, <code>'milk'</code>, and <code>'eggs'</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>let groceries = ['bread', 'milk', 'eggs'];</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How would you return <code>'bread'</code> from this array?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>groceries[0]</code></p>
+                </div>
+              </li>
+              <li>
+                <p>How would you replace <code>'bread'</code> in this array with <code>['asparagus', 'chicken']</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>groceries[0] = ['asparagus', 'chicken'];</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>How would you, then, return <code>'chicken'</code> from <code>groceries</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>groceries[0][1]</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>If <code>places</code> is an array <code>['Munich', 'Berlin', 'Frankfurt']</code>, how would you use a method to return <code>'Munich-Berlin-Frankfurt'</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>places.join('-')</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>If <code>placesStr</code> is a string <code>'Munich-Berlin-Frankfurt'</code>, how would you use a method to return <code>['Munich', 'Berlin', 'Frankfurt']</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>placesStr.split('-')</code></p>
+                </div>
+              </li>
+              <li>
+                <p>How would you append <code>'Hamburg'</code> then <code>'Stuttgart'</code> to the end of <code>places</code> using a method? What does this return?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>places.push('Hamburg', 'Stuttgart');</code></pre>
+                  <p>This returns the new length of the array, <code>5</code>.</p>
+                </div>
+              </li>
+              <li>
+                <p>How would you remove <code>'Stuttgart'</code> from <code>places</code> using a method? What does this return?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>places.pop();</code></pre>
+                  <p>This returns the element that was removed, <code>'Stuttgart'</code>.</p>
+                </div>
+              </li>
+              <li>
+                <p>How would you then append <code>'Dresden'</code> and <code>'Leipzig'</code> to the beginning of <code>places</code>, using a method (so that <code>places</code> would then be <code>['Dresden', 'Leipzig', 'Munich', 'Berlin', 'Frankfurt', 'Hamburg']</code>). What does this return?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>places.unshift('Dresden', 'Leipzig');</code></pre>
+                  <p>This returns the new length of the array, <code>5</code>.</p>
+                </div>
+              </li>
+              <li>
+                <p>How would you then remove <code>'Dresden'</code> from <code>places</code> using a method? What does this return?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>places.shift();</code></pre>
+                  <p>This returns the element that was removed, <code>'Dresden'</code>.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="javascript-building-blocks">
+        <h2>JavaScript building blocks</h2>
+        <h3 id="conditionals">Conditionals</h3>
+        <ol>
+          <li>
+            <p>How do you write an <code>if</code> statement?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>if (<em>condition</em>) {
+  <em>code to run if the condition is true</em>                
+} else if (<em>other condition</em>) {
+  <em>code to run if this condition is true</em>
+<em>&hellip;</em>
+} else {
+  <em>code to run if none of these conditions are true</em>
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What are six falsy values?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ul>
+                <li><code>0</code></li>
+                <li><code>null</code></li>
+                <li><code>false</code></li>
+                <li><code>""</code></li>
+                <li><code>NaN</code></li>
+                <li><code>undefined</code></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>What are the three logical operators?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt><code>&&</code></dt>
+                <dd>AND</dd>
+                <dt><code>||</code></dt>
+                <dd>OR</dd>
+                <dt><code>!</code></dt>
+                <dd>NOT</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>How do you write a <code>switch</code> statement?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>switch (<em>expression</em>) {
+  case <em>choice1</em>:
+    <em>code to run if the choice matches the expression</em>
+    break;
+  case <em>choice2</em>:
+    <em>code to run if this choice matches the expression</em>
+    break;
+  <em>&hellip;</em>
+  default:
+    <em>code to run if none of the other choices match the expression</em>
+}</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="looping-code">Looping code</h3>
+        <ol>
+          <li>
+            <p>How do you write a <code>for</code> loop?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>for (<em>initializer/counter</em>; <em>condition</em>; final-expression/iterator) {
+  <em>code to run</em>
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Write the loop that changes the content of a paragraph <code>para</code> (see below) to "<code>My cats are called Bill, Jeff, Pete, Biggles, Jasmine, </code>" by adding each cat's name one-by-one.</p>
+            <pre><code>const cats = ['Bill', 'Jeff', 'Pete', 'Biggles', 'Jasmine'];
+let info = 'My cats are called ';
+const para = document.querySelector('p');
+
+//your code 
+
+para.textContent = info;
+            </code></pre>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>for (let i = 0; i &lt; 5; i++) {
+  info += `${cats[i]}, `;          
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How would you make it so if a certain condition is met, some code is run and the loop is immediately exited?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Put <code>if(<em>condition</em>){<em>code</em>;break;}</code> in the loop.</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you make it so if a certain condition is met, some code is run and the loop immediately skips to the next iteration?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Put <code>if(<em>condition</em>){<em>code</em>;continue;}</code> in the loop.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you write a <code>while</code> loop?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code><em>initializer/counter</em>;
+while (<em>condition</em>) {
+  <em>code to run</em>
+  <em>final-expression/iterator</em>
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you write a <code>do<em>&hellip;</em>while</code> loop?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code><em>initializer/counter</em>;
+do {
+  <em>code to run</em>
+} while (<em>condition</em>)</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What is the difference between a <code>while</code> loop and a <code>do<em>&hellip;</em>while</code> loop?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A <code>do<em>&hellip;</em>while</code> loop will always run the code at least once.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="functions">Functions</h3>
+        <ol>
+          <li>
+            <p>How do you write a function? How do you invoke that function?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>function name (<em>parameters</em>) {
+  <em>code to run</em>          
+}
+name();</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What do you call a function without a name? How are these usually used? Give an example.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An anonymous function. These are usually used along with event handlers, like so:</p>
+              <pre><code>btn.onclick = function() {<em>code to run</em>}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What is scope? Why is it needed?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>When you create a function, variables and other things you define in the function exist in their own separate scope, and can't be accessed by code outside of that function. This is needed so that if you call in external scripts from elsewhere, the scripts won't conflict.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call the top-level scope outside all of the functions?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The global scope</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="introduction-to-events">Introduction to events</h3>
+        <ol>
+          <li>
+            <p>What method returns the first element within the document that matches the specified selector or group of selectors in its parameters? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>querySelector()</code>, the syntax of which is <code>document.querySelector(<em>selector</em>)</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What method creates the HTML element specified in its parameters? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>createElement()</code>, the syntax of which is <code>document.createElement(<em>tag selector</em>)</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What method sets the value of an element's attribute? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>setAttribute()</code>, the syntax of which is <code><em>element</em>.setAttribute('<em>attribute</em>', '<em>value</em>')</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What method adds a node to the end of a list of children of a specified parent node? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>appendChild()</code>, the syntax of which is <code><em>element</em>.appendChild(<em>the child</em>)</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What method removes a child node from the DOM and returns the removed node? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>removeChild()</code>, the syntax of which is <code><em>element</em>.removeChild(<em>the child</em>)</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What method returns a list of all of the elements within the document that match the specified selector or group of selectors in its parameters? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>querySelectorAll</code>, the syntax of which is <code>document.querySelectorAll(<em>selector</em>)</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What is an event handler? What does it mean to register an event handler?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A block of code that will run when a specified event fires. Registering an event handler is when you define that block of code.</p>
+            </div>
+          </li>
+          <li>
+            <p>What does an event listener do?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It listens out for the event happening.</p>
+            </div>
+          </li>
+          <li>
+            <p>What event handler property relates to when an element is focused? Not focused?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>onfocus</code> and <code>onblur</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What event handler property relates to when an element is double-clicked?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>ondblclick</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What event handler property relates to when a user presses a keyboard key?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>onkeydown</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What event handler property relates to when a user releases a key that was previously pressed?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>onkeyup</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What event handler property relates to when a user moves the mouse over an element?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>onmouseover</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What event handler property relates to when a user moves the mouse away from an element?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>onmouseout</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What are event handler HTML attributes? What else are these called?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An early method of registering event handlers, for example:</p>
+              <pre><code>&lt;button onclick="bgChange()"&gt;press&lt;/button&gt;</code></pre>
+              <p>These are also called inline event handlers.</p>
+            </div>
+          </li>
+          <li>
+            <p>How else can you write code to execute when an event is fired, using a method?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code><em>target</em>.addEventListener('<em>type</em>', <em>code</em>);</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What method "undoes" this method? What is its syntax?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code><em>target</em>.removeEventListener('<em>type</em>', <em>code</em>);</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is the event object?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An object automatically passed to event handlers to provide extra features and information</p>
+            </div>
+            <ol>
+              <li>
+                <p>What names can it have?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Most commonly <code>e</code>, <code>evt</code>, and <code>event</code> but they can be named anything</p>
+                </div>
+              </li>
+              <li>
+                <p>What property of the event object references the element that the event occurs upon?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>target</code></p>
+                </div>
+              </li>
+              <li>
+                <p>What method of the event object prevents an event from doing what it does by default, for example submitting a form with empty inputs?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>preventDefault()</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is bubbling and capturing?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Bubbling is when an event is fired on an element and the browser runs the event handlers on each of the element's parents if they have the same event type, starting with the element itself.</p>
+              <p>Capturing does this, too, but starting with the root element and down to the element itself.</p>
+            </div>
+            <ol>
+              <li>
+                <p>Which of these are all event handlers registered for in modern browsers?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Bubbling</p>
+                </div>
+              </li>
+              <li>
+                <p>If both types of event handlers are present, what order will the phases run in?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Capturing and then bubbling</p>
+                </div>
+              </li>
+              <li>
+                <p>How can you make it so an event doesn't bubble when fired?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>stopPropagation()</code> method on the event object.</p>
+                </div>
+              </li>
+              <li>
+                <p>Write the event handler for a <code>&lt;video&gt;&lt;/video&gt;</code> element that plays the video if it's clicked on, and prevents bubbling.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>video.onclick = function(e) {
+  e.stopPropagation();
+  video.play();
+};</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="introducing-javascript-objects">
+        <h2>Introducing JavaScript objects</h2>
+        <h3 id="object-basics"> Object basics</h3>
+        <ol>
+          <li>
+            <p>Write the code for an object <code>person</code> that contains the following members and values:</p>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Members:</th>
+                  <th scope="col">Values:</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>name</td>
+                  <td>an array containing <code>'Bob'</code> and <code>'Smith'</code></td>
+                </tr>
+                <tr>
+                  <td>age</td>
+                  <td>32</td>
+                </tr>
+                <tr>
+                  <td>gender</td>
+                  <td><code>'male'</code></td>
+                </tr>
+                <tr>
+                  <td>interests</td>
+                  <td>an array containing <code>'music'</code> and <code>'skiing'</code></td>
+                </tr>
+                <tr>
+                  <td>bio</td>
+                  <td>a function that displays an alert which reads "Bob Smith is 32 years old. He likes music and skiing."</td>
+                </tr>
+                <tr>
+                  <td>greeting</td>
+                  <td>a function that displays an alert which reads "Hi! I'm Bob!"</td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>const person = {
+  name: ['Bob', 'Smith'],
+  age: 32,
+  gender: 'male',
+  interests: ['music', 'skiing'],
+  bio: function() {alert(`${this.name} is ${this.age} years old. He likes ${this.interests[0]} and ${this.interests[1]}.`);},
+  greeting: function() {alert(`Hi! I\'m ${this.name}!`);}
+};</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How do you use dot notation to return each of these values? Bracket notation?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Dot notation:</p>
+                  <pre><code>person.name;
+person.name[0];
+person.name[1];
+person.age;
+person.interests;
+person.interests[0];
+person.interests[1];
+person.bio();
+person.greeting();</code></pre>
+                  <p>Bracket notation:</p>
+                  <pre><code>person['name'];
+person['name'][0];
+person['name'][1];
+person['age'];
+person['interests'];
+person['interests'][0];
+person['interests'][1];
+person['bio']();
+person['greeting']();</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What are the first four members referred to as?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Properties</p>
+                </div>
+              </li>
+              <li>
+                <p>What are the last two members referred to as?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Methods</p>
+                </div>
+              </li>
+              <li>
+                <p>What do you call an object like this, that is explicitly written out?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Object literal</p>
+                </div>
+              </li>
+              <li>
+                <p>What do you call it when the value of an object's member is another object?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Sub-namespace</p>
+                </div>
+              </li>
+              <li>
+                <p>If the value of <code>name</code> was an object with properties <code>first</code> and <code>last</code> containing <code>'Bob'</code> and <code>'Smith'</code> respectively, how would you return <code>'Bob'</code></p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>person.name.first</code> or <code>person['name']['first']</code></p>
+                </div>
+                <ol>
+                  <li>
+                    <p>How would you change the value of <code>last</code> from <code>'Smith'</code> to <code>'Cratchit'</code>?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <pre><code>person.name.last = 'Cratchit'</code></pre>
+                      <p>OR</p>
+                      <pre><code>person['name']['last'] = 'Cratchit'</code></pre>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>What is another name for objects, named for how they map strings to values in the same way arrays map numbers to values?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Associative arrays</p>
+                </div>
+              </li>
+              <li>
+                <p>How would you create a new method in <code>person</code> called <code>farewell</code> that displays an alert reading "Bye!"?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>person.farewell = function() {alert('Bye!');};</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="objectoriented-javascript-for-beginners">Object-oriented JavaScript for beginners</h3>
+        <ol>
+          <li>
+            <p>What is the official word for "storing" data in an object?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Encapsulating</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call the name an object is given?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Namespace</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call the general abstracted model of an object in object-oriented programming? For example, something that could be represented like this:</p>
+            <img src="../media/oojs-q3.svg" alt="A blue box with a gray headshot silhouette. In the box, beside the silhouette is text reading 'Name[firstName, lastName]' on the first line, 'Age' on the second line, 'Gender' on the third line, 'Interests' on the fourth line, 'Bio{&quot;[Name] is [Age] years old. They like [Interests]&quot;}' on the fifth line, and 'Greeting{&quot;Hi! I'm [Name].&quot;}' on the last line.">
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A class</p>
+            </div>
+            <ol>
+              <li>
+                <p>What do you call objects that contain the data and functionality defined in this abstracted model?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Object instances</p>
+                </div>
+                <ol>
+                  <li>
+                    <p>What do you call the process of creating these actual objects from the abstracted model?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p>Instantiation</p>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>What is a constructor function?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>What runs to instantiate from a class</p>
+                </div>
+              </li>
+              <li>
+                <p>What do you call more specific classes based on other classes? For example, if a class called Teacher inherited all of its members from the class represented in Question 3, with an added "Subject" property?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Child classes</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is JavaScript's version of a class?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Constructor functions</p>
+            </div>
+            <ol>
+              <li>
+                <p>How are the names of these conventionally denoted?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Starting with a capital letter</p>
+                </div>
+              </li>
+              <li>
+                <p>Write the constructor function called <code>Person</code> for an object with a property <code>name</code> whose value is passed to the constructor call and a method <code>greeting</code> that displays an alert reading "Hi! I'm [the name]"</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>function Person(name) {
+  this.name = name;
+  this.greeting = function (){
+    alert(`Hi! I\'m ${this.name}`);
+  };      
+}</code></pre>
+                </div>
+                <ol>
+                  <li>
+                    <p>How would you use this constructor to instantiate an object called <code>person1</code> whose <code>name</code> value is "<code>Bob</code>"?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <pre><code>let person1 = new Person('Bob');</code></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>How would you create this same object using the <code>Object()</code> constructor?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <pre><code>let person1 = new Object();
+person1.name = 'Bob';
+person1.greeting = function() {
+  alert(`Hi! I'm ${this.name}`);
+};</code></pre>
+                      <p>Or, alternatively:</p>
+                      <pre><code>let person1 = new Object({
+  name: 'Bob',
+  greeting: function() {
+    alert(`Hi! I'm ${this.name}`);
+  }                        
+});</code></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What method can be used with <code>Object()</code> here to create an object called <code>person2</code> based on <code>person1</code> that has all the same members?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>create()</code>, for example:</p>
+                      <pre><code>let person2 = Object.create(person1);</code></pre>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="object-prototypes">Object prototypes</h3>
+        <ol>
+          <li>
+            <p>What are prototypes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Prototypes are the mechanism by which JavaScript objects inherit features from one another.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is it called when an object's prototype object has its own prototype object, and so on?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Prototype chain</p>
+            </div>
+          </li>
+          <li>
+            <p>Where does the object <code>person1</code> from the last article inherit methods like <code>toString()</code> and <code>valueOf()</code> from?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>Object.prototype</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Are methods and properties copied from one object to another in the prototype chain?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>No. Those members are accessed by going up the prototype chain.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you return an object's prototype?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>Object.getPrototypeOf(<em>the object</em>);</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What's in <code>Person.prototype</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true"> 
+              <p>Nothing much until you define something on it</p>
+            </div>
+          </li>
+          <li>
+            <p>Where do strings inherit methods like <code>indexOf()</code> and <code>split()</code> from?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>String.prototype</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How does the <code>Object.create()</code> method work?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It creates a new object from a specified prototype object. For example, <code>let person2 = Object.create(person1)</code> creates an object <code>person2</code> using <code>person1</code> as a prototype object.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the <code>constructor</code> property?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Every constructor function contains a <code>prototype</code> property which is an object containing the <code>constructor</code> property, whose value is the original constructor function (<code>person1.constructor</code> is <code>Person</code>).</p>
+            </div>
+          </li>
+          <li>
+            <p>How can you use the <code>constructor</code> property to create a new object instance? For example, an object called <code>person3</code> based on <code>Person</code> whose name is "<code>Roberta</code>".</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>let person3 = new person1.constructor('Roberta');</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How would you return the name of <code>person1</code>'s constructor?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>person1.constructor.name</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you add a method to <code>Person</code> called <code>farewell</code> that displays an alert reading "[the name] has left the building" so that all of <code>Person</code>'s instances inherit this same method?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>Person.prototype.farewell = function() {
+  alert(`${this.name} has left the building`);              
+};</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="inheritance-in-javascript">Inheritance in JavaScript</h3>
+        <ol>
+          <li>
+            <p>If you have the following constructor, how would you add a method <code>greeting</code> to the constructor's prototype which displays an alert reading "Hi! I'm [name]"?</p>
+            <pre><code>function Person name() {this.name = name;}</code></pre>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>Person.prototype.greeting = function() {
+  alert(`Hi! I'm ${this.name}`);
+};</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How would you create a constructor <code>Teacher</code> from the <code>Person</code> constructor but with an added <code>subject</code> property?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>function Teacher(name, subject) {
+  Person.call(this, name);
+  this.subject = subject;   
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How would you return a list of <code>Person</code>'s properties? What about a list of <code>Person.prototype</code>'s properties?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>Object.getOwnPropertyNames(Person);
+Object.getOwnPropertyNames(Person.prototype);</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How would you transfer the methods of <code>Person.prototoype</code> to <code>Teacher.prototype</code>? Why is this necessary?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>Teacher.prototype = Object.create(Person.prototype);</code></pre>
+              <p>This is necessary because <code>Teacher</code> doesn't inherit the methods of <code>Person.prototype</code>.</p>
+            </div>
+            <ol>
+              <li>
+                <p>After doing this, what is <code>Teacher.prototype.constructor</code>? How can you make it <code>Teacher</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>Person</code>. You can make it <code>Teacher</code> by doing the following:</p>
+                  <pre><code>Object.defineProperty(Teacher.prototype, 'constructor', {
+  value: Teacher,
+  enumerable: false, //so that it doesn't appear in 'for...in' loop
+  writable: true});</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How would you write <code>Person</code> using <code>class</code> syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greeting() {
+    alert(`Hi! I'm ${this.name}`);
+  };
+}</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How would you instantiate an object <code>person1</code> whose <code>name</code> value is "<code>Bob</code>" from this?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>let person1 = new Person('Bob');</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>How would you make the aforementioned <code>Teacher</code> subclass using this same syntax?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>class Teacher extends Person {
+  constructor(name, subject) {
+    super(name);
+    this.subject = subject;
+  }
+}</code></pre>
+                </div>
+                <ol>
+                  <li>
+                    <p>Why is the <code>super()</code> statement necessary here?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p>For classes defined by the <code>extends</code> keyword (subclasses), <code>this</code> isn't automatically initialized. Instead, <code>this</code> is dependent on the parent class constructor. <code>super()</code> calls that constructor.</p>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>Why is <code>class</code> syntax called "syntactic sugar"?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>It only exists to make the code easier to write when, under the hood, the classes are being converted into Prototypal Inheritance models, because JavaScript isn't a class-based language.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What are getters and setters?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>They allow you to use methods as properties. A getter returns the current value of the variable and its corresponding setter changes the value of the variable to the one it defines.</p>
+            </div>
+            <ol>
+              <li>
+                <p>How would you use these to allow the <code>subject</code> property on the <code>Teacher</code> class to be variable?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>class Teacher extends Person {
+  constructor(name, subject) {
+    super(name);
+    this._subject = subject;
+  }
+  get subject(){
+    return this._subject;
+  }
+  set subject(newSubject){
+    this._subject = newSubject;
+  }
+}</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What is the purpose of the underscores here?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>This is to differentiate it from the <code>get</code> and <code>set</code> functions. Without this, we would get errors every time we tried to call <code>get</code> or <code>set</code>.</p>
+                </div>
+              </li>
+              <li>
+                <p>If you instantiate this class to make an object <code>msTrunchbull</code>, how would you set <code>_subject</code> to <code>"Maths"</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>msTrunchbull.subject = "Maths";</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What would be an easier way to do this? Why use getters and setters at all then?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>This could be done with plain property access with <code>msTrunchbull._subject = "Maths"</code> without getters and setters. </p>
+                  <p>Getters and setters can be very useful, for example when you want to run some code every time a property is requested or set.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          
+        </ol>
+        <h3 id="working-with-json">Working with JSON</h3>
+        <ol>
+          <li>
+            <p>What does JSON stand for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>JavaScript Object Notation</p>
+            </div>
+          </li>
+          <li>
+            <p>What is JSON?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A standard text-based format for representing structured data based on JavaScript object syntax. Closely resembles object literal syntax. Exists as a string.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is JSON commonly used for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Transmitting data in web applications</p>
+            </div>
+          </li>
+          <li>
+            <p>What is it called when you convert a string to a native JavaScript object so the data can be accessed? What about when you convert a native object to a string to be transmitted across the network?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Deserialization and serialization, respectively.</p>
+            </div>
+          </li>
+          <li>
+            <p>What file extension and media type is JSON (if stored in its own file)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>.json and <code>application/json</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you access data from a JSON object?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Same as with objects</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the object described in the table from Question 1 of the "Object basics" article in JSON, as much as it can be written in JSON.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>{
+  "name": ["Bob", "Smith"],
+  "age": 32,
+  "gender": "male",
+  "interests": ["music", "skiing"]          
+}</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>Can JSON take the form of an array? What about a string or an object?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Yes, JSON can take the form of any data type that is valid for inclusion inside JSON.</p>
+                </div>
+              </li>
+              <li>
+                <p>Can single quotes be used around strings and property names in JSON?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  No, only double quotes.
+                </div>
+              </li>
+              <li>
+                <p>If this is stored in a file <code>person.json</code> in the same directory as the JavaScript, write the code that retrieves the JSON and stores it in a variable called <code>person</code> for the data to be accessed.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>let requestURL = 'person.json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+  const person = request.response;
+  //what to do with it
+};</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What is the XMLHttpRequest API also often called?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>XHR</p>
+                </div>
+              </li>
+              <li>
+                <p>What if the JSON came as raw text, not as a JSON file?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>let requestURL = 'person.json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'text';
+request.send();
+                    
+request.onload = function() {
+  const personText = request.response;
+  const person = JSON.parse(personText);
+  //what to do with it
+};</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What method works the opposite way, taking a JavaScript object and converting it to JSON? How would you use it to convert the following object into JSON and store the JSON string in a variable <code>myString</code>?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>stringify()</code></p>
+                  <pre><code>let myString = JSON.stringify(myJSON);</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="asynchronous-javascript">
+        <h2>Asynchronous JavaScript</h2>
+        <h3 id="general-asynchronous-programming-concepts">General asynchronous programming concepts</h3>
+        <ol>
+          <li>
+            <p>What does asynchronous programming do?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It allows you to run other tasks while you're waiting for a task to complete.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is blocking?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>This is when, while code is being executed, the browser is kept from continuing to handle user input or performing other tasks until complete.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a thread? Why is JavaScript called single-threaded?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A thread is a single sequence of tasks, which is run one by one. JavaScript can traditionally only handle one thread at a time, called the main thread.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do web workers work?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Web workers will run other tasks in a separate thread called a worker thread while the tasks in the main thread continue to run, so user interaction is not blocked.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is one limitation to web workers?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Web workers aren't able to access the DOM, so you can't get a worker to directly do anything to update the UI.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="callbacks">Callbacks</h3>
+        <ol>
+          <li>
+            <p>What are async callbacks?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Functions that are specified as arguments when calling a function which will start executing in the background. When the background code finishes running, it calls the callback function to let you know the work is done, or to let you know that something of interest has happened.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="timeouts-and-intervals">Timeouts and intervals</h3>
+        <ol>
+          <li>
+            <p>What function executes a specified block of code once after a specified time has elapsed?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>setTimeout()</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What parameters does this take?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <ol>
+                    <li>A function to run</li>
+                    <li>A number representing the time interval in milliseconds</li>
+                    <li>Zero or more values that represent any parameters you want to pass to the function when it is run.</li>
+                  </ol>
+                </div>
+              </li>
+              <li>
+                <p>Is the specified time the guaranteed time to execution or the minimum time? Why?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The minimum time. This is because the callbacks you pass to these functions cannot run until the stack on the main thread is empty. If you execute code like <code>setTimeout(fn, 0)</code> but then immediately after run a loop that counts from 1 to 10 billion, your callback will be executed after a few seconds.</p>
+                </div>
+              </li>
+              <li>
+                <p>Do callback functions passed to this function have to be anonymous?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>No, you can have something like <code>setTimeout(function sayHi(){<em>code</em>}, 2000)</code></p>
+                </div>
+              </li>
+              <li>
+                <p>Write the code that displays an alert reading "Hello world!" after two seconds.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>setTimeout(function(){
+  alert("Hello world!");           
+}, 2000);</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>Write the code that, after two seconds, executes a function <code>sayHi</code> which displays an alert reading "Hello [name]". For <code>name</code>, use <code>"Mr. Universe"</code>.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>let myGreeting = setTimeout(function sayHi(name){
+  alert(`Hello ${name}`);
+}, 2000, "Mr. Universe");</code></pre>
+                  <p>OR:</p>
+                  <pre><code>function sayHi(name){
+  alert(`Hello ${name}`);
+}
+let myGreeting(sayHi, 2000, "Mr. Universe");</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>Write the code that cancels a timeout <code>myGreeting</code> before the specified time has elapsed.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>clearTimeout(myGreeting);</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What function executes a specified block of code repeatedly with a fixed time delay between each call?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>setInterval()</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>Write the code that, every second, displays the time as a string in the UI as part of the text content of an element with the id <code>demo</code>.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>funtion displayTime() {
+  let date = new Date();
+  let time = date.toLocaleTimeString();
+  document.getElementById('demo').textContent = time;                  
+}
+const createClock = setInterval(displayTime, 1000);</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>Write the code that cancels an interval <code>myInterval</code>.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>clearInterval(myInterval);</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>Write the code that logs a value <code>i</code> to the console every 100ms, starting at one and increasing every time. Write this in two ways: using a recursive timeout and using an interval.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>let i = 1;
+setTimeout(function run(){
+  console.log(i);
+  i++;
+  setTimeout(run, 100)
+}, 100);</code></pre>
+                  <p>OR:</p>
+                  <pre><code>let i = 1;
+setInterval(function run(){
+  console.log(i);
+  i++;
+}, 100);</code></pre>
+                </div>
+                <ol>
+                  <li>
+                    <p>How do these two approaches differ?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p>A recursive <code>setTimeout()</code> guarantees the same delay between the executions, whereas with <code>setInterval()</code>, the interval you choose includes the time taken to execute the code (if the code takes 40ms, the delay will be 60ms).</p>
+                      <p>With code that takes longer to run, it's better to use a recursive <code>setTimeout()</code>, to keep the time interval constant between executions.</p>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>Are <code>clearTimeout()</code> and <code>clearInterval()</code> exclusive to <code>setTimeout()</code> and <code>setInterval()</code> respectively?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>No, but you should use them like that to avoid confusion.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What function executes a specified block of code before the browser next repaints the display, allowing an animation to be run at a suitable frame rate regardless of the environment it is being run in?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>requestAnimationFrame()</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What function is this function a more modern version of?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>setInterval()</code></p>
+                </div>
+              </li>
+              <li>
+                <p>How do you use this function for animations?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>function draw() {
+  //drawing code 
+  requestAnimationFrame(draw);            
+}
+draw();</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What is a timestamp value? What is the general pattern for its use with this function?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The timestamp value represents the time since <code>requestAnimationFrame()</code> started running. You use it like so:</p>
+                  <pre><code>let startTime = null;
+function draw(timestamp){
+  if(!startTime){
+    startTime = timestamp;
+  }
+  currentTime = timestamp - startTime;
+  //do something based on currentTime
+  requestAnimationFrame(draw);
+}
+draw();</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>Write the code that cancels a call of this function called <code>rAF</code>.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>cancelAnimationFrame(rAF);</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="promises">Promises</h3>
+        <ol>
+          <li>
+            <p>What are promises for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>They allow you to defer further actions until after a previous action has completed, or respond to its failure. This is useful for setting up a sequence of async operations to work correctly.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the problem with callbacks?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Many nested callbacks are messy and difficult to read ("callback hell").</p>
+            </div>
+          </li>
+          <li>
+            <p>Write some pseudocode with promises representing the following steps as functions. Do this in two ways: one with regular anonymous functions and another with arrow functions.</p>
+            <ol>
+              <li>choose toppings</li>
+              <li>place your order</li>
+              <li>collect your order</li>
+              <li>eat the pizza</li>
+              <li>if any of these steps fails, <code>failureCallback</code></li>
+            </ol>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>chooseToppings()
+.then(function(toppings){
+  return placeOrder(toppings);
+})
+.then(function(order){
+  return collectOrder(order);
+})
+.then(function(pizza){
+  return eatPizza(pizza);
+})
+.catch(failureCallback);</code></pre>
+              <p>OR:</p>
+              <pre><code>chooseToppings()
+.then(toppings => placeOrder(toppings))
+.then(order => collectOrder(order))
+.then(pizza => eatPizza(pizza))
+.catch(failureCallback);</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What do you call a callback inside a <code>then</code> block?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The executor</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a blob?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Binary Large Object</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the code that does the following. Why is step 2 necessary?</p>
+            <ol>
+              <li>Fetch an image <code>coffee.jpg</code></li>
+              <li>If the response to this promise fails, throw an error reading "HTTP error! status: [the status]". If it succeeds, return the response as a blob.</li>
+              <li>Create an image element on the page to give the URL of this blob as its <code>src</code></li>
+              <li>If any of these promises fail, log an error message to the console reading "There has been a problem with your fetch operation: [the error message]"</li>
+            </ol>
+            <p>Note: this is just for demonstrative purposes. Obviously you could just create a <code>&lt;img&gt;</code> and set its <code>src</code> to <code>coffee.jpg</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>fetch('coffee.jpg')
+.then(response => {
+  if(!response.ok){
+    throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+    return response.blob();
+  }
+})
+.then(myBlob => {
+  let objectURL = URL.createObjectURL(myBlob);
+  let image = document.createElement('img');
+  image.src = objectURL;
+  document.body.appendChild(image);
+})
+.catch(e => {
+  console.log(`There has been a problem with your fetch operation: ${e.message}`);
+});</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What is the synchronous equivalent for <code>then</code>/<code>catch</code> blocks?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>try<em>&hellip;</em>catch</code> statements</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a promise said to be when it is first created and is neither a success nor a failure?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Pending</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a promised said to be when it returns?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Resolved</p>
+            </div>
+            <ol>
+              <li>
+                <p>What is a promise said to be when it does so successfully?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Fulfilled</p>
+                </div>
+              </li>
+              <li>
+                <p>What is a promise said to be when it does so unsuccessfully? What does this return?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Rejected. A rejected promise returns a reason, which is an error message stating why the promise was rejected.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What static method can be used to execute some code only after multiple promises have all fulfilled?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>Promise.all()</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What does this take as an input parameter?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>An array of promises</p>
+                </div>
+              </li>
+              <li>
+                <p>Write the code which consists of the following:</p>
+                <ol>
+                  <li>A function that does the following:
+                    <ol>
+                      <li>Fetches three resources: <code>coffee.jpg</code>, <code>tea.jpg</code>, and <code>description.txt</code></li>
+                      <li>If the response to any promise fails, throws an error reading "HTTP error! status: [the status]". If it succeeds, return the response as a blob or as a text depending on the resource.</li>
+                      <li>If any of these promises fail, logs an error message to the console reading "There has been a problem with your fetch operation: [the error message]"</li>
+                    </ol>
+                  </li>
+                  <li>Some code which, when the three resources have been fetched and decoded, executes <code>//placeholder code</code> representing placeholder code</li>
+                </ol>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>function fetchAndDecode(url, type){
+  return fetch(url).then(response => {
+    if(!response.ok){
+      throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      if(type === 'blob'){
+        return response.blob();
+      } else if(type === 'text'){
+        return response.text();
+      }
+    }
+  })
+  .catch(e => {
+    console.log(`There has been a problem with your fetch operation: ${e.message}`);
+  });
+}
+
+let coffee = fetchAndDecode('coffee.jpg', 'blob');
+let tea = fetchAndDecode('tea.jpg', 'blob');
+let description = fetchAndDecode('description.txt', 'text');
+
+Promise.all([coffee, tea, description]).then(values => {
+  //placeholder code
+});</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What method can be used to run some block of code after a promise completes, regardless of whether it fulfilled or rejected?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>finally()</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What can you add to the function from Question 10b so that after the promise completes, regardless of whether it fulfilled or rejected, a message is logged to the console reading "Fetch attempt for [the url] finished."?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>After the final <code>catch()</code> block, remove the semicolon and add:</p>
+                  <pre><code>.finally(() => {
+  console.log(`Fetch attempt for ${url} finished.`);
+});</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What constructor can be used to build your own custom promises?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>Promise()</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What is the main situation in which you would want to do this?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>When you've got code based on an old-school asynchronous API that is not promise-based, which you want to promise-ify</p>
+                </div>
+              </li>
+              <li>
+                <p>Write the code that promise-ifies a timeout which, after two seconds, runs a function that resolves a promise with a string <code>"Success!"</code> then logs it to the console.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>let timeoutPromise = new Promise((resolve, reject) => {
+  setTimeout(() => }{
+    resolve('Success!');
+  }, 2000);
+});
+
+timeoutPromise
+.then(message => {
+  alert(message);
+});</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What method can be used to reject a promise in the same way the method in the previous question resolves a promise? Where is the parameter of this method passed to?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>reject()</code>. The parameter is passed to <code>catch()</code>.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="async-and-await"><code>async</code> and <code>await</code></h3>
+        <ol>
+          <li>
+            <p>How can you turn a function into an asynchronous function? What does this do specifically?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Put the <code>async</code> keyword before the function declaration. This tells the function to return a promise rather than directly returning a value.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the code that consists of an asynchronous function <code>hello</code> which returns <code>"Hello"</code>, and an invocation of that function that logs <code>"Hello"</code> to the console if the promise fulfills.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>async function hello() {
+  return "Hello";
+}
+hello()
+.then(value => console.log(value));</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What does the <code>await</code> keyword do?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It can be put in front of any async promise-based function to pause your code on that line until the promise fulfills, then return the resulting value. In the meantime, other code that may be waiting for a chance to execute gets to do so.</p>
+            </div>
+          </li>
+          <li>
+            <p>Rewrite the code from Question 6 of the "Promises" lesson with an <code>async</code> function and <code>await</code>s.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>async function myFetch() {
+  let response = await fetch('coffee.jpg');
+
+  if(!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+    let myBlob = await response.blob();
+    let objectURL = URL.createObjectURL(myBlob);
+    let image = document.createElement('img');
+    image.src = objectURL;
+    document.body.appendChild(image);
+  }
+}
+
+myFetch()
+.catch(e => {
+  console.log(`There has been an problem with your fetch operation: ${e.message}`);
+});</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How might you handle errors within the function using a <code>try<em>&hellip;</em>catch</code> statement?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>async function myFetch() {
+  try {
+    let response = await fetch('coffee.jpg');
+
+    if(!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      let myBlob = await response.blob();
+      let objectURL = URL.createObjectURL(myBlob);
+      let image = document.createElement('img');
+      image.src = objectURL;
+      document.body.appendChild(image);
+    }
+  } catch(e) {
+    console.log(e);
+  }
+}
+
+myFetch();</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>Can you use <code>await</code> before a <code>Promise.all()</code></p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Yes.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a downside to <code>await</code>s? How can this be resolved?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>They only run one by one. If you want the promises to begin processing simultaneously (like they would if you weren't using <code>async</code>/<code>await</code>), you have to store all your promises in separate variables and then <code>await</code> them on separate lines.</p>
+            </div>
+          </li>
+          <li>
+            <p>Can you put <code>async</code> in front of functions in a class so they return promises?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Yes.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="clientside-web-apis">
+        <h2>Client-side web APIs</h2>
+        <h3 id="introduction-to-web-apis">Introduction to web APIs</h3>
+        <ol>
+          <li>
+            <p>What does API stand for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Application Programming Interface</p>
+            </div>
+          </li>
+          <li>
+            <p>What are APIs?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>APIs are constructs made available in programming languages to allow developers to create complex functionality more easily. They abstract more complex code away from you, providing some easier syntax to use in its place.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the two categories of client-side JavaScript APIs? Describe them.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt>Browser APIs</dt>
+                <dd>Built into the browser</dd>
+                <dt>Third-party APIs </dt>
+                <dd>Built into third-party platforms like Twitter and Facebook, located on third-party servers</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>What are JavaScript libraries?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>One or more JavaScript files containing custom functions that you can attach to your web page to speed up or enable writing common functionality.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are JavaScript frameworks?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The next step up from libraries. Tend to be packages of HTML, CSS, JavaScript, and other technologies that you install and then use to write an entire web application from scratch.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do all APIs have in common?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ol>
+                <li>Based on objects</li>
+                <li>Have recognizable entry points</li>
+                <li>Use events to handle changes in state</li>
+                <li>Have additional security mechanisms where appropriate</li>
+              </ol>
+            </div>
+          </li>
+        </ol>
+        <h3 id="manipulating-documents">Manipulating documents</h3>
+        <ol>
+          <li>
+            <p>What method adds a text node to the end of the text content of some element? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>createTextNode()</code>, the syntax of which is <code><em>element</em>.createTextNode(<em>the text</em>)</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you remove a node based only on a reference to itself (as opposed to a reference to itself and its parent)? What is its syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>remove()</code> method, the syntax of which is <code><em>node</em>.remove()</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you change an element <code>para</code> to have the following styles?</p>
+            <pre><code>color: white;
+background-color: black;
+padding: 10px;
+width: 250px;
+text-align: center;</code></pre>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>para.style.color = 'white';
+para.style.backgroundColor = 'black';
+para.style.padding = '10px';
+para.style.width = 250px;
+para.style.textAlign = center;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you change the value of a <code>class</code> attribute of an element <code>para</code> to <code>highlight</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>para.setAttribute('class', 'highlight');</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="fetching-data-from-the-server">Fetching data from the server</h3>
+        <ol>
+          <li>
+            <p>What is the purpose of APIs like XMLHttpRequest and the Fetch API?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>So you don't have to reload the entire page every time you update it</p>
+            </div>
+          </li>
+          <li>
+            <p>What is Ajax? Is this term still used today? Why or why not?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Stands for Asynchronous JavaScript and XML because it tended to use XHR to request XML data. Nowadays, you're more likely to use XHR or Fetch to request JSON but the term "Ajax" is still used because the result is the same.</p>
+            </div>
+          </li>
+          <li>
+            <p>How does the Ajax model work?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You request data through Ajax which sends an HTTP request to the server, which returns an HTTP response through Ajax, which provides the data back to the display.</p>
+            </div>
+          </li>
+          <li>
+            <p>Rewrite the code from Question 7c of "Working with JSON" using the more modern Fetch API.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>let requestURL = 'person.json';
+fetch(requestURL).then(response => {
+  response.json().then(json => {
+    const person = json;
+    //what to do with it
+  });
+});
+              </code></pre>
+              <p>OR:</p>
+              <pre><code>let requestURL = 'person.json';
+fetch(requestURL).then(response => {
+  return response.json();
+}).then(json => {
+  const person = json;
+  //what to do with it
+});</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What if the JSON came as raw text, not as a .json file?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>let requestURL = 'person.json';
+fetch(requestURL).then(response => {
+  response.text().then(text => {
+    const person = JSON.parse(text);
+    //what to do with it
+  });
+});</code></pre>
+                  <p>OR:</p>
+                  <pre><code>let requestURL = 'person.json';
+fetch(requestURL).then(response => {
+  return response.text();
+}).then(text => {
+  const person = JSON.parse(text);
+  //what to do with it
+});</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="thirdparty-apis">Third-party APIs</h3>
+        <ol>
+          <li>
+            <p>How do third-party APIs hold users of the API accountable for how they use it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>To use it, you have to get a developer key.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a RESTful API?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An API where instead of getting data using the features of a JavaScript library, you get data by making HTTP requests to specific URLs, with data encoded in the URL</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="drawing-graphics">Drawing graphics</h3>
+        <ol>
+          <li>
+            <p>How do you create a canvas on the page 320 pixels wide and 240 pixels tall, with some fallback content?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;canvas width="320" height="240"&gt;
+  &lt;p&gt;fallback content&lt;/p&gt;
+&lt;/canvas&gt;
+              </code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What are the default dimensions of a canvas if you don't explicitly define them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>300px wide and 150px tall</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you set the dimensions of a canvas <code>canvas</code> to the dimensions of the viewport?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>Why does this cause scrollbars? How do you fix that?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The &lt;body&gt;&lt;/body&gt; has margins. To fix this:</p>
+                  <pre><code>body {
+  margin: 0;
+  overflow: hidden;
+}</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>Should you use CSS to size the canvas? Why or why not?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>No, you should only use HTML attributes or DOM properties, because if you use CSS, the sizing is done after the canvas has already rendered, which could cause it to become pixelated/distorted.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so you can actually draw 2d drawings on a canvas <code>canvas</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>const ctx = canvas.getContext('2d');</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you color a canvas black, whose dimensions are defined by <code>width</code> and <code>height</code> attributes and the top-left corner has coordinates (0,0)?</p>
+            <p>Note: assume for this question and all following questions that the context is defined in a variable <code>ctx</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>ctx.fillStyle = 'black';
+ctx.fillRect(0, 0, width, height);</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Where is the origin (0,0) located on a canvas?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Top-left corner of the canvas</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you draw a green, 10px-wide, half-transparent square whose top-left corner is located at (75,75)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>ctx.fillStyle = 'rgb(0,255,0,.5)';
+ctx.fillRect(75,75,10,10);</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What would you add if you wanted this square to have a black stroke with stroke width 5px? What is the default stroke width if you don't specify it?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>ctx.strokeStyle = 'black';
+ctx.lineWidth = 5;
+ctx.strokeRect(75,75,10,10);
+                  </code></pre>
+                  <p>The default stroke width, if you don't specify it, is 1px.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you draw a red, upside down, equilateral triangle, whose top-left corner is at (50,50), and whose sides are each 50px?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>ctx.fillStyle = 'red';
+ctx.beginPath();
+ctx.moveTo(50,50);
+ctx.lineTo(100,50);
+ctx.lineTo(75,50+(25*Math.tan(Math.PI/3)));
+ctx.lineTo(50,50);
+ctx.fill();
+              </code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you draw a green circle, whose center is at (150,150), whose radius is 50px, and whose stroke is red and 5px wide?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>ctx.fillStyle = 'green';
+ctx.beginPath();
+ctx.arc(150,150,50,0,2*Math.PI,false);
+ctx.fill();
+ctx.strokeStyle = 'red';
+ctx.lineWidth = 5;
+ctx.stroke();
+              </code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you draw some text with no fill reading "Canvas text", where the bottom-left corner of the text box is at (50,50), the font size is 36px, the font is Arial, and the stroke is green and 5px wide?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>ctx.strokeStyle = 'green';
+ctx.lineWidth = 2;
+ctx.font = '36px arial';
+ctx.strokeText('Canvas text', 50, 50);</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you draw some red text reading "Canvas text", where the bottom-left corner of the text box is at (50,150), the font size is 48px, and the font is Georgia?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>ctx.fillStyle = 'red';
+ctx.font = '48px georgia';
+ctx.fillText('Canvas text', 50, 150);
+              </code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you draw an image onto the canvas (create the image using a constructor) whose <code>src</code> is <code>firefox.png</code>, and whose top-left corner is at (50,50)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>let image = new Image();
+image.src = 'firefox.png';
+image.onload = function(){
+  ctx.drawImage(image, 50, 50);
+};</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What if you wanted to crop the image and place it into the canvas according to the following specifications?</p>
+                <p>Sub-rectangle:</p>
+                <ul>
+                  <li>top-left corner: (20,20)</li>
+                  <li>width: 185</li>
+                  <li>height: 175</li>
+                </ul>
+                <p>Into the destination canvas:</p>
+                <ul>
+                  <li>top-left corner: (50,50)</li>
+                  <li>width: 185</li>
+                  <li>height: 175</li>
+                </ul>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>ctx.drawImage(image, 20, 20, 185, 175, 50, 50, 185, 175);</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you move the origin of a canvas of width <code>width</code> and height <code>height</code> to be in the center?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>ctx.translate(width/2, height/2);</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What API allows you to draw in a 3D canvas?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>WebGL</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="video-and-audio-apis">Video and audio APIs</h3>
+        <ol>
+          <li>
+            <p>What's wrong with the native video/audio controls?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>They're different in each browser (not good for cross-browser support) and in most browsers they aren't very keyboard-accessible.</p>
+            </div>
+          </li>
+          <li>
+            <p>What API provides features to allow you to control video and audio players programmatically?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The HTMLMediaElement API</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you play a media element <code>media</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>media.play();</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you pause a media element <code>media</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>media.pause();</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What property of a media element returns <code>true</code> if the media is paused?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The <code>paused</code> property (e.g. <code>media.paused</code>)</p>
+            </div>
+          </li>
+          <li>
+            <p>What event fires if the media finishes playing?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>'ended'</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you check whether an element <code>fwd</code> has a class <code>active</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>fwd.classList.contains('active')</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>If it does, how can you remove it from that element?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>fwd.classList.remove('active');</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>If it doesn't, how can you add it to that element?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>fwd.classList.add('active');</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What event fires if the current playback time of some media changes (the <code>currentTime</code> property updates)? How often does this update?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>'timeupdate'</code></p>
+              <p>How often this updates depends on your browser, CPU power, etc.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="clientside-storage">Client-side storage</h3>
+        <ol>
+          <li>
+            <p>What does the Web Storage API do?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Allows you to store data in simple name/value pairs and retrieve them when needed</p>
+            </div>
+            <ol>
+              <li>
+                <p>What is the difference between session storage and local storage?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Session storage persists data for as long as the tab/window is open. Local storage persists data even after the browser is closed and then opened again.</p>
+                </div>
+              </li>
+              <li>
+                <p>How would you save a data item whose name is <code>name</code> and whose value is <code>Justin</code> into local storage?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>localStorage.setItem('name', 'Justin');</code></pre>
+                </div>
+                <ol>
+                  <li>
+                    <p>How would you retrieve the value of this data item?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <pre><code>localStorage.getItem('name');</code></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>How would you remove this data item from local storage? What is the value of the item after you do this?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <pre><code>localStorage.removeItem('name');</code></pre>
+                      <p>After you do this, the value of the item is <code>null</code>.</p>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is the IndexedDB API? How is it often abbreviated?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A complete database system available in the browser for storing complex data. Often abbreviated as IDB.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the Cache API?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The Cache API is designed for storing HTTP responses to specific requests.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What are service workers?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>A service worker is a JavaScript file that is registered against a particular origin when it is accessed by the browser. When registered, it can control pages available at that origin, which it does by sitting between a loaded page and the network and intercepting network requests aimed at that origin.</p>
+                  <p>The service worker API is often used in conjunction with the Cache API to store assets offline so the website can be accessed offline.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

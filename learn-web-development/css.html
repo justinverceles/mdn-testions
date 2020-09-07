@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS - Learn web development | MDN Testions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <header aria-label="MDN Testions header">
+    </header>
+    <nav>
+      <button type="button" id="nav" aria-haspopup="true" aria-label="Show menu"></button>
+      <ul aria-hidden="true">
+        <li><a href="../index.html">Home</a></li>
+        <li>Learn web development
+        <ol>
+          <li><a href="../learn-web-development/html.html">HTML — Structuring the Web</a></li>
+          <li><a href="../learn-web-development/css.html">CSS — Styling the Web</a></li>
+          <li><a href="../learn-web-development/javascript.html">JavaScript — Dynamic client-side scripting</a></li>
+          <li><a href="../learn-web-development/web-forms.html">Web forms — Working with user data</a></li>
+          <li><a href="../learn-web-development/accessibility.html">Accessibility — Making the web usable by everyone</a></li>
+        </ol>
+        </li>
+      </ul>
+      <a href="#contents" aria-label="To the contents"></a>
+    </nav>   
+
+    <main>
+      <h1>CSS</h1>
+      <section id="contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#css-first-steps">CSS first steps</a>
+            <ol>
+              <li><a href="#getting-started-with-css">Getting started with CSS</a></li>
+              <li><a href="#how-css-is-structured">How CSS is structured</a></li>
+              <li><a href="#how-css-works">How CSS works</a></li>
+            </ol>
+          </li>
+          <li><a href="#css-building-blocks">CSS building blocks</a>
+            <ol>
+              <li><a href="#cascade-and-inheritance">Cascade and inheritance</a></li>
+              <li><a href="#type-class-and-id-selectors">Type, class, and ID selectors</a></li>
+              <li><a href="#attribute-selectors">Attribute selectors</a></li>
+              <li><a href="#pseudoclasses-and-pseudoelements">Pseudo-classes and pseudo-elements</a></li>
+              <li><a href="#combinators">Combinators</a></li>
+              <li><a href="#the-box-model">The box model</a></li>
+              <li><a href="#backgrounds-and-borders">Backgrounds and borders</a></li>
+              <li><a href="#handling-different-text-directions">Handling different text directions</a></li>
+              <li><a href="#overflowing-content">Overflowing content</a></li>
+              <li><a href="#css-values-and-units">CSS values and units</a></li>
+              <li><a href="#sizing-items-in-css">Sizing items in CSS</a></li>
+              <li><a href="#images-media-and-form-elements">Images, media, and form elements</a></li>
+              <li><a href="#styling-tables">Styling tables</a></li>
+            </ol>
+          </li>
+          <li><a href="#styling-text">Styling text</a>
+            <ol>
+              <li><a href="#fundamental-text-and-font-styling">Fundamental text and font styling</a></li>
+              <li><a href="#styling-lists">Styling lists</a></li>
+              <li><a href="#styling-links">Styling links</a></li>
+            </ol>
+          </li>
+          <li><a href="#css-layout">CSS layout</a>
+            <ol>
+              <li><a href="#flexbox">Flexbox</a></li>
+              <li><a href="#grids">Grids</a></li>
+              <li><a href="#floats">Floats</a></li>
+              <li><a href="#positioning">Positioning</a></li>
+              <li><a href="#multiplecolumn-layout">Multiple-column layout</a></li>
+              <li><a href="#beginners-guide-to-media-queries">Beginner's guide to media queries</a></li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="css-first-steps">
+        <h2>CSS first steps</h2>
+        <h3 id="getting-started-with-css">Getting started with CSS</h3>
+        <ol>
+          <li>
+            <p>What is the following called, and what are its various parts called?</p>
+            <pre><code>h1 {
+  color: red;
+  font-size: 5em;
+}</code></pre>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The whole thing is the rule. The <code>h1</code> is the selector. <code>color: red</code> and <code>font-size: 5em</code> are declarations. <code>color</code> and <code>font-size</code> are properties. <code>red</code> and <code>5em</code> are the values.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="how-css-is-structured">How CSS is structured</h3>
+        <ol>
+          <li>
+            <p>What are the three ways of applying CSS to HTML, from best to worst?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt>External stylesheet</dt>
+                <dd><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code> in the head</dd>
+                <dt>Internal stylesheet</dt>
+                <dd>putting CSS between <code>&lt;style&gt;&lt;/style&gt;</code> tags in the head</dd>
+                <dt>Inline styles</dt>
+                <dd>putting CSS in a <code>style</code> attribute on an element</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>What are cascade and specificity?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The cascade means that later styles take precedence over previous styles. Specificity means that the more specifically selected styles take precedence over less specific ones.</p>
+            </div>
+          </li>
+          <li>
+            <p>Are CSS properties and values case-sensitive?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Yes.</p>
+            </div>
+          </li>
+          <li>
+            <p>What happens if the browser encounters CSS it doesn't understand?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The whole declaration is ignored.</p>
+            </div>
+          </li>
+          <li>
+            <p>Which country's spelling standard does CSS use?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The United States</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you use an @rule to import a stylesheet into another CSS stylesheet?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@import 'styles2.css'</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>What happens when you omit values in CSS shorthand?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Those values get reset.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make comments in CSS?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>/* This is a comment */</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="how-css-works">How CSS works</h3>
+        <ol>
+          <li>
+            <p>How does a browser basically load a page, in steps?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ol>
+                <li>It loads and parses the HTML.</li>
+                <li>It creates a DOM (Document Object Model).</li>
+                <li>It loads and parses the CSS.</li>
+                <li>It attaches the CSS to DOM nodes (render tree).</li>
+                <li>It displays the webpage on the screen (painting).</li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <p>What is the DOM?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>DOM stands for the Document Object Model. It represents the document in the computer's memory, and is like a tree where every element, attribute, and piece of text becomes a node on the tree, with parent nodes, child nodes, and sibling nodes.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="css-building-blocks">
+        <h2>CSS building blocks</h2>
+        <h3 id="cascade-and-inheritance">Cascade and inheritance</h3>
+        <ol>
+          <li>
+            <p>What is inheritance?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Whether or not a property inherits a value from the parent element.</p>
+            </div>
+          </li>
+          <li>
+            <p>What property values control inheritance?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ul>
+                <li><code>inherit</code></li>
+                <li><code>initial</code> (the property's initial value, as defined in the CSS specifications; different from the browser's default styles)</li>
+                <li><code>unset</code> (sets the inheritance to however the property acts by default, <code>inherit</code>, or <code>initial</code>)</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>What factors contribute to which rule will be applied in the case of conflict, in order of increasing importance?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ol>
+                <li>Source order</li>
+                <li>Inheritance</li>
+                <li>Importance</li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <p>What things don't impact specificity?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The universal selector (<code>*</code>), combinators, and the negation pseudo-class (<code>:not</code>)</p>
+            </div>
+          </li>
+          <li>
+            <p>What system can be used to determine specificity?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A scoring system which works as follows:</p>
+              <ol>
+                <li><strong>Thousands</strong>: Score one in this column if it's an inline style.</li>
+                <li><strong>Hundreds</strong>: Score one for each ID selector in the overall selector.</li>
+                <li><strong>Tens</strong>: Score one for each class, attribute and pseudo-class in the overall selector.</li>
+                <li><strong>Ones</strong>: Score one for each element or pseudo-element in the overall selector.</li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <p>What is importance? When should you use it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>When you put <code>!important</code> next to a property value, you mark that declaration as important (e.g. <code>border: none !important</code>). You should only use it when absolutely necessary, because it messes with the rules of the cascade.</p>
+            </div>
+          </li>
+          <li>
+            <p>How are conflicting declarations applied across different stylesheets?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>In order of increasing importance:</p>
+              <ol>
+                <li>Declarations in user agent stylesheets (browser default styles)</li>
+                <li>Normal declarations in user stylesheets (custom styles set by the user)</li>
+                <li>Normal declarations in author stylesheets (styles set by web devs)</li>
+                <li>Important declarations in author stylesheets</li>
+                <li>Important declarations in user stylesheets</li>
+              </ol>
+            </div>
+          </li>
+        </ol>
+        <h3 id="type-class-and-id-selectors">Type, class, and ID selectors</h3>
+        <ol>
+          <li>
+            <p>Write the selector that targets all <code>&lt;span&gt;&lt;/span&gt;</code> elements.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>span</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every single thing in the document.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>*</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How can you use a universal selector to make a selector easier to read?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Instead of something like <code>article :first-child</code> (which could be confused with <code>article:first-child</code>), you can write <code>article *:first-child</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all elements with a <code>class</code> of <code>cereal</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>.cereal</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all <code>&lt;span&gt;&lt;/span&gt;</code>s with a <code>class</code> of <code>cereal</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>span.cereal</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all elements with a <code>class</code> of <code>cereal</code> and a <code>class</code> of <code>milk</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>.cereal.milk</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all elements with an <code>id</code> of <code>shoop</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>#shoop</code></p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="attribute-selectors">Attribute selectors</h3>
+        <ol>
+          <li>
+            <p>Write the selector that targets all <code>&lt;a&gt;&lt;/a&gt;</code>s with a <code>title</code> attribute.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>a[title]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all <code>&lt;a&gt;&lt;/a&gt;</code>s with a <code>href</code> attribute with a value of exactly <code>http://example.com</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>a[href="http://example.com"]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all <code>&lt;p&gt;&lt;/p&gt;</code>s with a <code>class</code> attribute, of which <code>special</code> is either its exact value or one of its values (in a space-separated list).</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>p[class~="special"]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all <code>&lt;div&gt;&lt;/div&gt;</code>s with a <code>class</code> attribute, whose value is either exactly <code>zh</code> or begins with <code>zh-</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>div[lang|="zh"]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all <code>&lt;li&gt;&lt;/li&gt;</code>s with a <code>class</code> attribute whose value begins with <code>box-</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>li[class^="box-"]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all <code>&lt;li&gt;&lt;/li&gt;</code>s with a <code>class</code> attribute whose value ends with <code>-box</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>li[class$="-box"]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets all <code>&lt;li&gt;&lt;/li&gt;</code>s with a <code>class</code> attribute whose value contains <code>box</code> anywhere in the string.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>li[class*="box"]</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you tell the browser to match an attribute value case-insensitively?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Put an <code>i</code> next to the attribute, for example, <code>li[class*="box" i]</code></p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="pseudoclasses-and-pseudoelements">Pseudo-classes and pseudo-elements</h3>
+        <ol>
+          <li>
+            <p>How are pseudo-classes denoted?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>With a <code>:</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;p&gt;&lt;/p&gt;</code> that is the first element in an <code>&lt;article&gt;&lt;/article&gt;</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>article p:first-child</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;p&gt;&lt;/p&gt;</code> that is the last element in an <code>&lt;article&gt;&lt;/article&gt;</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>article p:last-child</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;p&gt;&lt;/p&gt;</code> that is the only element in an <code>&lt;article&gt;&lt;/article&gt;</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>article p:only-child</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;input&gt;</code> that fails to validate.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>input:invalid</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;a&gt;&lt;/a&gt;</code> that is being hovered over.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>a:hover</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;a&gt;&lt;/a&gt;</code> that is being focused using keyboard controls.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>a:focus</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How are pseudo-elements denoted?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>With a <code>::</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets the first line of every <code>&lt;p&gt;&lt;/p&gt;</code> in an <code>&lt;article&gt;&lt;/article&gt;</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>article p::first-line</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the rule that puts the string --> before every element with a <code>class</code> of <code>box</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>.box::before {content: "-->";}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Write the rule that puts the string --> after every element with a <code>class</code> of <code>box</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>.box::after {content: "-->";}</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="combinators">Combinators</h3>
+        <ol>
+          <li>
+            <p>Write the selector that targets every <code>&lt;p&gt;&lt;/p&gt;</code> inside an <code>&lt;article&gt;&lt;/article&gt;</code> inside a <code>&lt;section&gt;&lt;/section&gt;</code>. What kind of combinator is this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>section article p</code></p>
+              <p>This is a descendant combinator.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;p&gt;&lt;/p&gt;</code> that is a direct child of an <code>&lt;article&gt;&lt;/article&gt;</code>. What kind of combinator is this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>article > p</code></p>
+              <p>This is a child combinator.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;img&gt;</code> that comes right after a <code>&lt;p&gt;&lt;/p&gt;</code> at the same hierarchy level. What kind of combinator is this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>p + img</code></p>
+              <p>This is an adjacent sibling combinator.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the selector that targets every <code>&lt;img&gt;</code> that comes anywhere after a <code>&lt;p&gt;&lt;/p&gt;</code> at the same hierarchy level. What kind of combinator is this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>p ~ img</code></p>
+              <p>This is a general sibling combinator.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="the-box-model">The box model</h3>
+        <ol>
+          <li>
+            <p>Do inline boxes respect <code>width</code> and <code>height</code> attributes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>No.</p>
+            </div>
+          </li>
+          <li>
+            <p>Do padding, margins, and borders on inline boxes push away other inline boxes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Vertically, no. Horizontally, yes.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the difference between inner and outer display types?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An outer display type (e.g. <code>block</code> and <code>inline</code>) determines how the box interacts with other boxes around it. An inner display type (e.g. <code>flex</code> and <code>grid</code>) determines how elements inside the box interact with one another.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are the parts of a CSS box, from inside to outside?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Content, padding, border, and margin.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the difference between the standard box model and the alternative box model?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>In the alternative box model, <code>width</code> and <code>height</code> include the padding and border.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make all elements follow the alternative box model?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>html {box-sizing: border-box;}
+*, *::before, *::after {box-sizing: inherit;}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>If one element with a <code>margin-top</code> of 30px is right below another element with a <code>margin-bottom</code> of 50px, what will be the margin between the two elements? What is this called?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>50px. This is called margin collapsing.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is, say, <code>border-left</code> shorthand for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>border-left-width</code>, <code>border-left-style</code>, and <code>border-left-color</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What is <code>display: inline-block</code> for?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>For inline boxes that respect <code>width</code> and <code>height</code>, and whose padding, margins, and borders push away other elements in all directions.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="backgrounds-and-borders">Backgrounds and borders</h3>
+        <ol>
+          <li>
+            <p>Write the declaration that creates a background image with <code>balloons.png</code>.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>background-image: url('balloons.png')</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What would you add so it doesn't repeat?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>background-repeat: no-repeat</code></p>
+                </div>
+              </li>
+              <li>
+                <p>So it only repeats horizontally?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>background-repeat: repeat-x</code></p>
+                </div>
+              </li>
+              <li>
+                <p>So it only repeats vertically?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>background-repeat: repeat-y</code></p>
+                </div>
+              </li>
+              <li>
+                <p>So it repeats in both directions?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>background-repeat: repeat</code></p>
+                </div>
+              </li>
+              <li>
+                <p>What would you add so it completely covers the box area while maintaining its aspect ratio?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>background-size: cover</code></p>
+                </div>
+              </li>
+              <li>
+                <p>So it fits inside the box while maintaining its aspect ratio?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>background-size: contain</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What property is used to position a background image?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>background-position</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>How does the coordinate system work with this?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The top-left is the origin. The first coordinate is the horizontal position; the second coordinate is the vertical position.</p>
+                </div>
+              </li>
+              <li>
+                <p>What keywords does this take?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>top</code>, <code>left</code>, and <code>center</code></p>
+                </div>
+              </li>
+              <li>
+                <p>What happens when you mix a keyword with a length/percentage?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The result means the distance from that keyword. For example, <code>top 20px right 10px</code> means 20px from the top and 10px from the right.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>Write the declaration that fixes an element's background to the page (scrolls when the page is scrolled, stays fixed when the element's content is scrolled).</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>background-attachment: scroll</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the declaration that fixes an element's background to the viewport (stays fixed whether the page or the element's content is scrolled; always remains in the same position on the screen).</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>background-attachment: fixed</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the declaration that fixes an element's background to the element itself (scrolls whether the page or the element's content is scrolled, unless the element doesn't scroll on the page, like if it has <code>position: fixed</code>)</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>background-attachment: local</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What is the rule with specifying <code>background-color</code> using the <code>background</code> shorthand property?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It must come after the last comma.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the rule with specifying <code>background-size</code> using the <code>background</code> shorthand property?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It can only come immediately after <code>background-position</code>, separated by a forward slash (e.g. <code>center/80%</code>).</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you round the corners of a border?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>border-radius</code> property. The first value is the horizontal radius, and the second is the vertical radius.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="handling-different-text-directions">Handling different text directions</h3>
+        <ol>
+          <li>
+            <p>What property is used to switch the writing mode of the document?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>writing-mode</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What are the possible values for this property?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <dl>
+                    <dt><code>horizontal-tb</code></dt>
+                    <dd>left-to-right inline direction and top-to-bottom block direction</dd>
+                    <dt><code>vertical-lr</code></dt>
+                    <dd>top-to-bottom inline direction and left-to-right block direction</dd>
+                    <dt><code>vertical-rl</code></dt>
+                    <dd>top-to-bottom inline direction and right-to-left block direction</dd>
+                  </dl>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is the logical, flow-relative equivalent to the <code>width</code> attribute?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>inline-size</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What is the logical, flow-relative equivalent to the <code>height</code> attribute?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>block-size</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What are the logical, flow-relative equivalents to the <code>margin</code>/<code>padding</code>/<code>border</code> <code>-top</code>, <code>-right</code>, <code>-bottom</code>, and <code>-left</code> properties?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>-block-start</code>, <code>-inline-end</code>, <code>-block-end</code> and <code>-inline-start</code></p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="overflowing-content">Overflowing content</h3>
+        <ol>
+          <li>
+            <p>What is overflow?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>What happens when there is too much content to fit in a box</p>
+            </div>
+          </li>
+          <li>
+            <p>What property allows you to control how an element overflows?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>overflow</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What is the default value for this property? Why?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The default value is <code>visible</code>. This is to prevent data loss.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make overflow visible?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>overflow: visible</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make overflow invisible?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>overflow: hidden</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you put scrollbars on overflowing content? What is the caveat to this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>overflow: scroll</code></p>
+              <p>The caveat is that the scrollbars will display even if the content isn't overflowing.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you put scrollbars on overflowing content in only one direction?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>overflow-x: scroll</code> for the horizontal direction and <code>overflow-y: scroll</code> for the vertical direction</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you set two different values for <code>overflow</code>, one for each direction?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>overflow</code> is shorthand for <code>overflow-x</code> then <code>overflow-y</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so scrollbars only appear when the content overflows?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>overflow: auto</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What is a Block Formatting Context? What values of <code>overflow</code> create one?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A BFC is when the content of a box becomes a layout of its own, and content cannot poke into or out of the container. This is created when you set <code>overflow</code> to any value other than <code>visible</code>.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="css-values-and-units">CSS values and units</h3>
+        <ol>
+          <li>
+            <p>What is another name for CSS values?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>CSS datatypes</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a &lt;number&gt;?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Decimal numbers (negative, zero, or positive)</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a &lt;dimension&gt;? What values does this include?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A &lt;number&gt; with a unit attached to it. Includes &lt;length&gt;, &lt;angle&gt;, &lt;time&gt;, and &lt;resolution&gt;.</p>
+            </div>
+          </li>
+          <li>
+            <p>What values does the <code>opacity</code> property take?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A &lt;number&gt; from <code>0</code> (transparent) to <code>1</code> (opaque).</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the difference between RGB and RGBA?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>RGBA takes opacity as a fourth parameter (alpha).</p>
+            </div>
+          </li>
+          <li>
+            <p>What is HSL?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt>Hue</dt>
+                <dd>the base shade</dd>
+                <dt>Saturation</dt>
+                <dd>how much gray is in it from completely gray to no gray</dd>
+                <dt>Light</dt>
+                <dd>how much black is in it from completely black to completely white</dd>
+              </dl>
+            </div>
+          </li>
+        </ol>
+        <h3 id="sizing-items-in-css">Sizing items in CSS</h3>
+        <ol>
+          <li>
+            <p>What is an element's intrinsic size?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The natural size of the element before it is affected by CSS</p>
+            </div>
+          </li>
+          <li>
+            <p>What is an <code>&lt;img&gt;</code>'s intrinsic size?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>An <code>&lt;img&gt;</code>'s intrinsic size is defined in the image file.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is a <code>&lt;div&gt;&lt;/div&gt;</code>'s intrinsic size?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A <code>&lt;div&gt;&lt;/div&gt;</code> is only as tall as its content.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is an element's extrinsic size?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The size given to it </p>
+            </div>
+          </li>
+          <li>
+            <p>In what dimension does setting the size of an element risk overflow?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The block dimension</p>
+            </div>
+          </li>
+          <li>
+            <p>From what is the value of margins and padding when set in percentages calculated?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The inline size</p>
+            </div>
+          </li>
+          <li>
+            <p>What can you do when you know a box will contain a variable amount of content and you want it to always be at least a certain height?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You can set a <code>min-height</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>What can you do when you want an image to scale down when there's not enough space to display them at their intrinsic width, while making sure they don't become larger than that width?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>max-width: 100%</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What is <code>1vw</code> equal to?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>1% of the viewport width</p>
+            </div>
+          </li>
+          <li>
+            <p>What is <code>1vh</code> equal to?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>1% of the viewport height</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="images-media-and-form-elements">Images, media, and form elements</h3>
+        <ol>
+          <li>
+            <p>What are replaced elements?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Elements whose internal layouts are inaccessible to CSS</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you make it so a replaced element completely covers the box area while maintaining its aspect ratio?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>object-fit: cover</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How would you make it so a replaced element fits inside the box while maintaining its aspect ratio?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>object-fit: contain</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Do replaced elements stretch when put into flex or grid layouts?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>No.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write a basic form reset with comments explaining the purpose of each part.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>button,
+input,
+select,
+textarea,
+<em>&hellip;</em> {
+  font-family: inherit;     /* because form elements don't inherit font styling by default */
+  font-size: 100%;          /* same as above */
+  box-sizing: border-box;   /* because box sizing is inconsistent across browsers */
+  padding: 0; margin: 0;    /* good for consistency so you can add them back to your liking later */
+}
+textarea {
+  overflow: auto;           /* because IE puts scrollbars on &lt;textarea&gt;&lt;/textarea&gt;s by default */
+}</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="styling-tables">Styling tables</h3>
+        <ol>
+          <li>
+            <p>What is something that you should set on tables so you can size columns manually? Why is this necessary?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>table-layout: fixed</code></p>
+              <p>This is necessary because by default, columns are sized according to their content which can lead to unpredictable results.</p>
+            </div>
+          </li>
+          <li>
+            <p>What should you set on tables so table cells share borders?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>border-collapse: collapse</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so letters are spaced apart?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>letter-spacing</code> property.</p>
+            </div>
+          </li>
+          <li>
+            <p>What are zebra stripes? How do you set them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>This is when the rows of a table alternate in color, making the table easier to read. You can do this using the <code>:nth-child()</code> pseudo-class with the <code>even</code> and <code>odd</code> keywords.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so text is centered in a table cell?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>text-align: center</code></p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="styling-text">
+        <h2>Styling text</h2>
+        <h3 id="fundamental-text-and-font-styling">Fundamental text and font styling</h3>
+        <ol>
+          <li>
+            <p>What property is used to set the font?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>font-family</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What are the web safe fonts and their respective caveats/things to remember about them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <dl>
+                <dt>Arial</dt>
+                <dd>It's good practice to use Helvetica as a preferred alternative</dd>
+                <dt>Courier New</dt>
+                <dd>Some OSs use Courier, so it's good practice to use both, with Courier New as the preferred alternative.</dd>
+                <dt>Georgia</dt>
+                <dd>No caveats</dd>
+                <dt>Times New Roman</dt>
+                <dd>Some OSs use Times, so it's good practice to use both, with Times New Roman as the preferred alternative.</dd>
+                <dt>Trebuchet MS</dt>
+                <dd>Not widely available on mobile OSs</dd>
+                <dt>Verdana</dt>
+                <dd>No caveats</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>What is the general format of a font stack?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ol>
+                <li>Preferred font</li>
+                <li>Alternative fonts (separated by commas)</li>
+                <li>Web safe font</li>
+                <li>Generic name</li>
+              </ol>
+              <p>e.g. <code>"Trebuchet MS", Verdana, sans-serif</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What property is used to set the font size?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>font-size</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Is font size inherited?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Yes.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the default font size of <code>&lt;html&gt;&lt;/html&gt;</code>?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>16px</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you set how bold the text is? What two values for this are you most likely to use?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>font-weight</code> property. The two values you will probably use are <code>normal</code> and <code>bold</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>What property can be used to make text all capitals? What values does this take?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>text-transform</code> property. Its values are as follows:</p>
+              <ul>
+                <li><code>none</code></li>
+                <li><code>uppercase</code></li>
+                <li><code>lowercase</code></li>
+                <li><code>capitalize</code> (first letter of every word is capitalized)</li>
+                <li><code>full-width</code> (transforms all glyphs to be written in a fixed-width square, like a monospace font)</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>What property can be used to put an underline on text? What values does this take?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>text-decoration</code> property.</p>
+              <p>This is shorthand for:</p>
+              <ul>
+                <li><code>text-decoration-line</code> which takes:
+                  <ul>
+                    <li><code>none</code></li>
+                    <li><code>underline</code></li>
+                    <li><code>overline</code></li>
+                    <li><code>line-through</code></li>
+                  </ul>
+                </li>
+                <li><code>text-decoration-style</code> which takes:
+                  <ul>
+                    <li><code>solid</code></li>
+                    <li><code>double</code></li>
+                    <li><code>dotted</code></li>
+                    <li><code>dashed</code></li>
+                    <li><code>wavy</code></li>
+                  </ul>
+                </li>
+                <li><code>text-decoration-color</code></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>How do you give text a drop shadow?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>text-shadow</code> property. It is formatted as follows:</p>
+              <ol>
+                <li>Horizontal offset (required)</li>
+                <li>Vertical offset (required)</li>
+                <li>Blur radius (defaults to zero if omitted)</li>
+                <li>Color (defaults to black if omitted)</li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <p>How do you align text?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>text-align</code> property. Its values are as follows:</p>
+              <ul>
+                <li><code>left</code></li>
+                <li><code>right</code></li>
+                <li><code>center</code></li>
+                <li><code>justify</code></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>How do you set line height?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>line-height</code> property. Takes most length and size units, or a unitless value which acts as a multiplier (best option).</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so words are spaced apart?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>word-spacing</code> property.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="styling-lists">Styling lists</h3>
+        <ol>
+          <li>
+            <p>How do you set the type of bullets to use for a list?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>list-style-type</code> property on the <code>&lt;ul&gt;&lt;/ul&gt;</code> or <code>&lt;ol&gt;&lt;/ol&gt;</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you set whether the bullets appear inside the list items or outside them before the start of each item?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>list-style-position</code> property on the <code>&lt;ul&gt;&lt;/ul&gt;</code> or <code>&lt;ol&gt;&lt;/ol&gt;</code> with a value of <code>inside</code> or <code>outside</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you set a custom image for the bullets?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>list-style-image</code> property with the <code>url()</code> function. Although, since this is limited in terms of controlling the position, size, etc. of the bullets, it's better to use the <code>background</code> properties.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the shorthand for these properties?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>list-style</code> with the values in any order</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make an ordered list start on a number other than one?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>start</code> attribute on the <code>&lt;ol&gt;&lt;/ol&gt;</code> e.g. <code>start="4"</code> makes it count 4. 5. 6. etc.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make an ordered list count backwards?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the boolean <code>reversed</code> attribute on the <code>&lt;ol&gt;&lt;/ol&gt;</code>. This continues to zero and into the negatives.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you give specific numerical values to ordered list items?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>value</code> attribute on the <code>&lt;li&gt;&lt;/li&gt;</code>s.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="styling-links">Styling links</h3>
+        <ol>
+          <li>
+            <p>How do you target an unvisited link?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>:link</code> pseudo-class.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target a visited link?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>:visited</code> pseudo-class.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target a link being hovered over?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>:hover</code> pseudo-class.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target a link being focused with keyboard controls or something else?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>:focus</code> pseudo-class.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target a link being clicked on?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>:active</code> pseudo-class.</p>
+            </div>
+          </li>
+          <li>
+            <p>In what order should you put link rules?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>a:link {<em>&hellip;</em>}
+a:visited {<em>&hellip;</em>}
+a:focus {<em>&hellip;</em>}
+a:hover {<em>&hellip;</em>}
+a:active {<em>&hellip;</em>}</code></pre>
+              <p>To remember this, you can use the mnemonic <strong>L</strong>o<strong>V</strong>e <strong>F</strong>ears <strong>HA</strong>te.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="css-layout">
+        <h2>CSS layout</h2>
+        <h3 id="flexbox">Flexbox</h3>
+        <ol>
+          <li>
+            <p>What is flexbox?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It is a one-dimensional layout method for laying out items in rows and columns.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you select which items are to be laid out as flexible boxes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>display: flex</code> on the flex container.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What if you wanted to lay out inline items as flexible boxes?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Set <code>display: inline-flex</code> on the flex container.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is the difference between the main axis and the cross axis?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The main axis is the axis running in the direction the flex items are being laid out. The cross axis is the axis perpendicular to the main axis.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you set the direction in which flex items are laid out?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>flex-direction</code> property. Its values are as follows:</p>
+              <ul>
+                <li><code>column</code></li>
+                <li><code>row</code></li>
+                <li><code>column-reverse</code></li>
+                <li><code>row-reverse</code></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so the flex items wrap when reaching the end of the main axis?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>flex-wrap: wrap</code> on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so the flex items are each 200px wide?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>flex: 200px</code> on the container.</p>
+            </div>
+            <ol>
+              <li>
+                <p>How can you use this same property to instead set unitless proportion values on individual flex items to determine the space they take up?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>As an example, if one item has <code>flex: 2</code> set and another has <code>flex: 1</code> set, that first item will fill twice the amount of space as the second.</p>
+                </div>
+              </li>
+              <li>
+                <p>How can you set a minimum width to be applied on a flex item before the unitless proportion value is applied?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>As an example, <code>flex: 2 200px</code> means that the flex item will be given a width of 200px and then the rest of the available space will be shared out according to the proportion values.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is the shorthand for the two properties from Questions 4 and 6?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>flex-flow</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control where the flex items sit on the cross axis?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>align-items</code> property:</p>
+              <dl>
+                <dt><code>align-items: stretch</code></dt>
+                <dd>The default; items stretch to fill the parent in the cross direction</dd>
+                <dt><code>align-items: center</code></dt>
+                <dd>Items are centered along the cross axis</dd>
+                <dt><code>align-items: flex-start</code></dt>
+                <dd>Items are aligned at the start of the cross axis</dd>
+                <dt><code>align-items: flex-end</code></dt>
+                <dd>Items are aligned at the end of the cross axis</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>How do you control where the flex items sit on the main axis?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>justify-content</code> property:</p>
+              <dl>
+                <dt><code>justify-content: flex-start</code></dt>
+                <dd>Items sit at the start of the main axis</dd>
+                <dt><code>justify-content: flex-end</code></dt>
+                <dd>Items sit at the end of the main axis</dd>
+                <dt><code>justify-content: center</code></dt>
+                <dd>Items sit at the center of the main axis</dd>
+                <dt><code>justify-content: space-around</code></dt>
+                <dd>Distributes items evenly along the main axis with some space at either end</dd>
+                <dt><code>justify-content: space-between</code></dt>
+                <dd>Distributes items evenly along the main axis with no space at either end</dd>
+              </dl>
+            </div>
+          </li>
+          <li>
+            <p>How do you change the layout order of individual flex items?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>order</code> property. Flex items with greater <code>order</code> values appear later in the display order than items with lesser <code>order</code> values. You can use negative values to make items appear earlier than items with an <code>order</code> value of <code>0</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>Can you nest flex items (make a flex item a flex container)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Yes.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="grids">Grids</h3>
+        <ol>
+          <li>
+            <p>What is CSS Grid Layout?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It is a two-dimensional layout method for laying out items in rows and columns.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call the gaps between rows and columns?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Gutters</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you select which items are to be laid out in a grid? What is the immediate effect of doing this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>display: grid</code> on the container. This has no effect until you add columns or rows.</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you arrange a grid into three 200px columns?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>grid-template-columns: 200px 200px 200px</code> or <code>grid-template-columns: repeat(3, 200px)</code> on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you arrange a grid into three columns, one of which takes up twice as much of the available space as the other two?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>grid-template-columns: 2fr 1fr 1fr</code> on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you make the gutters of a grid 20px wide?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>grid-gap: 20px</code> and <code>gap: 20px</code> on the container.</p>
+              <p><code>gap</code> is the newer version, made with the intent of being able to be used for multiple layout methods. <code>grid-gap</code> will still work for some time, but you should put both just in case.</p>
+            </div>
+          </li>
+          <li>
+            <p>How would you make the gutters between columns 20px wide and the gutters between rows 15px wide?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>grid-gap: 15px 20px</code> and <code>gap: 15px 20px</code> on the container.</p>
+              <p><code>grid-gap</code> is shorthand for <code>grid-row-gap</code> then <code>grid-column-gap</code> (<code>gap</code> is shorthand for <code>row-gap</code> then <code>column-gap</code>).</p>
+            </div>
+          </li>
+          <li>
+            <p>Using a function, how would you arrange a grid into three columns, each taking up the same amount of available space?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>grid-template-columns: repeat(3, 1fr)</code> on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is the difference between the explicit grid and the implicit grid? What are they analogous to in flexbox?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The explicit grid consists of the rows and columns you set manually with <code>grid-template-columns</code> and <code>grid-template-rows</code>. The implicit grid is created when content is placed outside of that grid.</p>
+              <p>This is analogous to the main and cross flexbox axes.</p>
+            </div>
+          </li>
+          <li>
+            <p>How are implicit row and column tracks sized by default? How can you size them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>By default, they are sized with <code>auto</code>, which means they are only large enough to fit their content. You can size them by setting the <code>grid-auto-rows</code> and <code>grid-auto-columns</code> properties on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How can you prevent overflow with implicit grid tracks that you sized?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You can set <code>grid-auto-rows: minmax(<em>your min size</em>, auto)</code> on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How can you make a grid create as many columns of some minimum size as will fit in the container?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You can set <code>grid-template-columns: repeat(auto-fill, minmax(<em>your min size</em>, 1fr))</code> on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the CSS that places items in a grid so that:</p>
+            <ol>
+              <li>The <code>&lt;header&gt;&lt;/header&gt;</code> sits on the first row and spans columns 1 through 3</li>
+              <li>The <code>&lt;article&gt;&lt;/article&gt;</code> sits on the second row and the second column</li>
+              <li>The <code>&lt;aside&gt;&lt;/aside&gt;</code> sits on the second row and the first column</li>
+              <li>The <code>&lt;footer&gt;&lt;/footer&gt;</code> sits on the third row and spans columns 1 through 3</li>
+            </ol>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>header {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+article {
+  grid-column: 2;
+  grid-row: 2;
+}
+aside {
+  grid-column: 1;
+  grid-row: 2;
+}
+footer {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What about for area-based placement?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>.container {
+  grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer";
+}
+header {grid-area: header;}
+article {grid-area: content;}
+aside {grid-area: sidebar;}
+footer {grid-area: footer;}</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>How do you specify an empty cell using area-based placement?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use a <code>.</code></p>
+                </div>
+              </li>
+              <li>
+                <p>How would you make the <code>&lt;article&gt;&lt;/article&gt;</code> three times as wide as the <code>&lt;aside&gt;&lt;/aside&gt;</code> using a line-based 12-column grid framework?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>header {
+  grid-column: 1 / 13;
+  grid-row: 1;                    
+}
+article {
+  grid-column: 4 / 13;
+  grid-row: 2;
+}
+aside {
+  grid-column: 1 / 4;
+  grid-row: 2;
+}
+footer {
+  grid-column: 1 / 13;
+  grid-row: 3;
+}</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="floats">Floats</h3>
+        <ol>
+          <li>
+            <p>If you have a box followed by text in the source code, How would you it so the box floats to the left while the text wraps around it, like so:</p>
+            <img src="../media/floats-q1.svg" alt="An image showing a box with nine horizontal lines all to the right of it and six horizontal lines that are twice as long under it to represent text wrapping around it">
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>float: left</code> on that box.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What other values does this property take?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <ul>
+                    <li><code>right</code></li>
+                    <li><code>none</code></li>
+                    <li><code>inline-start</code></li>
+                    <li><code>inline-end</code></li>
+                  </ul>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How would you make it so some of the text moves down away from the box, like so:</p>
+            <img src="../media/floats-q2.svg" alt="An image showing a box with just five horizontal lines to the right of it and eight horizontal lines that are twice as long under it to represent text wrapping around it, but with some text clearing the box and moving under it">
+            <button type="answer">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>clear: left</code> on that box.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What other values does this property take?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <ul>
+                    <li><code>both</code></li>
+                    <li><code>right</code></li>
+                    <li><code>none</code></li>
+                    <li><code>inline-start</code></li>
+                    <li><code>inline-end</code></li>
+                  </ul>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How would you make it so that, if you had a wrapper around the floated box and that first paragraph (first five lines), the rest of the text cleared the box so that the bottom of the wrapper box wraps the floating item and the wrapping content even if the content is shorter? For a visual aid:</p>
+            <p>You want this:</p>
+            <img src="../media/floats-q3-1.svg" alt="An image showing a box with just five horizontal lines to the right of it and eight horizontal lines that are twice as long under it to represent text wrapping around it, but with some text clearing the box and moving under it. There is a box wide enough to wrap both the first paragraph (first five lines) and the floated box, but only tall enough to wrap the first paragraph.">
+            <p>Not this:</p>
+            <img src="../media/floats-q3-2.svg" alt="An image showing a box with just five horizontal lines to the right of it and eight horizontal lines that are twice as long under it to represent text wrapping around it, but with some text clearing the box and moving under it. There is a box both wide enough and tall enough to wrap both the first paragraph (first five lines) and the floated box.">
+            <p>Describe three ways to accomplish this, and say which one is the preferred method.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Clearfix:</p>
+              <pre><code>.wrapper::after {
+  content: "";
+  clear: both;
+  display: block;                
+}</code></pre>
+              <p>Using overflow (creates a BFC, but might create unwanted scrollbars or clip shadows):</p>
+              <pre><code>.wrapper {
+  overflow: auto;                
+}</code></pre>
+              <p>The official, preferred way (exists only to create a BFC without unintended consequences):</p>
+                <pre><code>.wrapper {
+  display: flow-root;                
+}</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="positioning">Positioning</h3>
+        <ol>
+          <li>
+            <p>What is static positioning? How do you set it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>The default position of every element (positioned according to source order). You can set it with <code>position: static</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is relative positioning? How do you set it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Positioning relative to the element's position in normal flow. You can set it with <code>position: relative</code>.</p>
+            </div>
+            <ol>
+              <li>
+                <p>How would you position an element to be 30px down and 20px to the right of its default, static position?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Set <code>top: 30px</code> and <code>left: 20px</code> on the element.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What is absolute positioning? How do you set it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Positioning relative to the element's containing block (nearest positioned ancestor). You can set it with <code>position: absolute</code>.</p>
+            </div>
+            <ol>
+              <li>
+                <p>How would you position an element to be 30px down and 20px to the right of the top-left corner of its containing block?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Set <code>top: 30px</code> and <code>left: 20px</code> on the element.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you identify the containing element of an absolutely positioned element?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>If all of the element's ancestor elements have a static position, then the containing block is the initial containing block, which contains the root element and has the dimensions of the viewport.</p>
+                </div>
+              </li>
+              <li>
+                <p>What is the positioning context?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The element that the absolutely positioned element is positioned relative to</p>
+                </div>
+              </li>
+              <li>
+                <p>If you absolutely position an element, is the space that the element filled when it was in normal flow preserved?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>No, that gap is closed because the element was taken out of normal flow to sit on a separate layer.</p>
+                </div>
+              </li>
+              <li>
+                <p>Does margin collapsing affect absolutely positioned elements?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>No, because it creates a BFC.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>In the case of overlapping, in what order are elements stacked by default?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Elements appearing later in the source order overlap earlier elements.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you change the order that overlapping elements are stacked?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>z-index</code> property, which works like the <code>order</code> property from flexbox.</p>
+            </div>
+          </li>
+          <li>
+            <p>What is fixed positioning? How do you set it?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It's like absolute positioning, except it's positioned relative to the browser viewport itself. You can set it with <code>position: fixed</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so an element acts like it is relatively positioned until it is 10px from the top of the viewport, at which point it remains fixed at that position while scrolling?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>position: sticky</code> and <code>top: 10px</code>.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="multiplecolumn-layout">Multiple-column layout</h3>
+        <ol>
+          <li>
+            <p>How do you switch on multicol?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set either <code>column-count</code> (creates the specified number of columns) or <code>column-width</code> (creates as many columns of the specified width as can fit) on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you set the size of the gaps between columns? </p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set the <code>column-gap</code> property on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you put a rule in between columns?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set the <code>column-rule</code> (takes the same values as <code>border</code>) on the container.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you increase the space on either side of a rule?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Increase the <code>column-gap</code>. The <code>column-rule</code> doesn't take up any space; it just lies across the gap.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make an element span across all of the columns? Some of the columns?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>column-span: all</code> on the container. You can't make an element span only some columns; it's either <code>none</code> or <code>all</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so an element doesn't fragment across columns?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>break-inside: avoid</code> on that element (and the older property <code>page-break-inside: avoid</code>) for best browser support.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="beginners-guide-to-media-queries">Beginner's guide to media queries</h3>
+        <ol>
+          <li>
+            <p>What is the basic media query syntax?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media <em>media-type</em> and (<em>media-feature-rule</em>)</code> {<em>rules</em>}</pre>
+            </div>
+          </li>
+          <li>
+            <p>What are the possible media types?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>all</code>, <code>print</code>, <code>screen</code>, and <code>speech</code></p>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query that makes the body text blue if the screen's width is less than or equal to 600px.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media screen and (max-width: 600px) {
+  body {
+    color: blue;
+  }
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query that makes the body text red if the screen's width is greater than 600px.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media screen and (min-width: 600px) {
+  body {
+    color: red;
+  }                
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query that makes the body text rebeccapurple if the screen is in landscape mode. What other values does this media feature take?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media screen and (orientation: landscape) {
+  body {
+    color: rebeccapurple;
+  }                
+}</code></pre>
+              <p><code>orientation</code> also takes <code>portrait</code> as a value.</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query that makes the body text rebeccapurple if the user has the ability to hover over elements.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media (hover: hover) {
+  body {
+    color: rebeccapurple;
+  }                
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query which tests that a user is using a mouse or a trackpad. What other values does this media feature take?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media (pointer: fine) {<em>&hellip;</em>}</code></pre>
+              <p><code>pointer</code> also takes <code>coarse</code> (finger on a touch screen) and <code>none</code> (voice or keyboard controls).</p>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query which tests that the screen is both at least 600px wide and in landscape mode.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media screen and (min-width: 600px) and (orientation: landscape) {<em>&hellip;</em>}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query which tests that the screen is at least 600px wide or in landscape mode.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media screen and (min-width: 600px), screen and (orientation: landscape) {<em>&hellip;</em>}</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Write the media query which tests that the screen is not in landscape mode.</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>@media not all and (orientation: landscape) {<em>&hellip;</em>}</code></pre>
+              <p>The <code>not</code> operator negates the entire rest of the media query.</p>
+            </div>
+          </li>
+          <li>
+            <p>What do you call the point at which a media query is introduced?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A breakpoint</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

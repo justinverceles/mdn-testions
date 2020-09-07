@@ -1,0 +1,19 @@
+
+nav {background-image: url(../media/phone-top-home.png)}
+main {background-image: url(../media/phone-border-bright-home.png)}
+
+@media screen and (orientation: landscape) {
+  #nav {width: 98.5vw}
+  nav {background-image: url(../media/landscape-frame-top-home.png)}
+  main {background-image: url(../media/landscape-frame-border-home.png)}
+}
+
+@media screen and (min-width: 768px) {
+  #nav {width: 98.5vw}
+  nav {background-image: url(../media/laptop-top-home.png)}
+  main {background-image: url(../media/laptop-border-home.png)}
+}
+
+@media screen and (min-width: 1060px) {
+  #nav {width: 62rem}
+}

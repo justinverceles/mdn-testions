@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web forms - Learn web development | MDN Testions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <header aria-label="MDN Testions header">
+    </header>
+    <nav>
+      <button type="button" id="nav" aria-haspopup="true" aria-label="Show menu"></button>
+      <ul aria-hidden="true"> 
+        <li><a href="../index.html">Home</a></li>
+        <li>Learn web development
+        <ol>
+          <li><a href="../learn-web-development/html.html">HTML — Structuring the Web</a></li>
+          <li><a href="../learn-web-development/css.html">CSS — Styling the Web</a></li>
+          <li><a href="../learn-web-development/javascript.html">JavaScript — Dynamic client-side scripting</a></li>
+          <li><a href="../learn-web-development/web-forms.html">Web forms — Working with user data</a></li>
+          <li><a href="../learn-web-development/accessibility.html">Accessibility — Making the web usable by everyone</a></li>
+        </ol>
+        </li>
+      </ul>
+      <a href="#contents" aria-label="To the contents"></a>
+    </nav>     
+
+    <main>
+      <h1>Web forms</h1>
+      <section id="contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#core-forms-learning-pathway">Core forms learning pathway</a>
+            <ol>
+              <li><a href="#how-to-structure-a-web-form">How to structure a web form</a></li>
+              <li><a href="#basic-native-form-controls">Basic native form controls</a></li>
+              <li><a href="#the-html5-input-types">The HTML5 input types</a></li>
+              <li><a href="#other-form-controls">Other form controls</a></li>
+              <li><a href="#advanced-form-styling">Advanced form styling</a></li>
+              <li><a href="#ui-pseudoclasses">UI pseudo-classes</a></li>
+              <li><a href="#clientside-form-validation">Client-side form validation</a></li>
+              <li><a href="#sending-form-data">Sending form data</a></li>
+            </ol>
+          </li>
+          <li><a href="#advanced-forms-articles">Advanced forms articles</a>
+            <ol>
+              <li><a href="#sending-forms-through-javascript">Sending forms through JavaScript</a></li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="core-forms-learning-pathway">
+        <h2>Core forms learning pathway</h2>
+        <h3 id="how-to-structure-a-web-form">How to structure a web form</h3>
+        <ol>
+          <li>
+            <p>What element formally defines a form?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;form&gt;&lt;/form&gt;</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>Can you use a form control outside of this element?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Yes, but if you do so, that control has nothing to do with any form unless you associated it with a form using the <code>form</code> attribute whose value is the <code>id</code> of the <code>&lt;form&gt;&lt;/form&gt;</code>.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What element groups together widgets which share the same purpose, for styling and semantic purposes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;fieldset&gt;&lt;/fieldset&gt;</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>How can you provide a label for this element?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Between <code>&lt;legend&gt;&lt;/legend&gt;</code> tags beneath the opening <code>&lt;fieldset&gt;</code> tag</p>
+                </div>
+              </li>
+              <li>
+                <p>How do screen readers and other assistive technologies use these elements?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>They'll speak the legend's content before speaking the label of each control.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you label a widget?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>With a <code>&lt;label&gt;&lt;/label&gt;</code> element using a <code>for</code> attribute whose value is the <code>id</code> of the widget(s). The label and the widgets can be separate or the widgets can be nested in the label.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What happens if you click or tap the label for a widget?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>It activates the corresponding widget.</p>
+                </div>
+              </li>
+              <li>
+                <p>Should you use multiple labels for a single widget? Why or why not?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>No because some assistive technologies have difficulty handling them.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="basic-native-form-controls">Basic native form controls</h3>
+        <ol>
+          <li>
+            <p>Can you perform rich editing (bold, italic, etc.) on HTML form text fields? Why or why not?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>No, because they're all plain text input controls. All rich text editors you encounter are custom widgets created with HTML, CSS, and JavaScript.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so a user cannot modify a text input's value but it is still sent with the rest of the data?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Mark it with a boolean <code>readonly</code> attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you give a text input placeholder text that briefly describes the purpose of the box?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>placeholder</code> attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control the size of a text input box?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>size</code> attribute whose value is the number of characters wide the box is.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control the maximum amount of characters that can be entered into a text input?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>maxlength</code> attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you control whether a text input is checked for spelling errors?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>spellcheck</code> attribute, whose value you have to explicitly specify as <code>true</code> or <code>false</code> (it's not a boolean attribute).</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a single line text field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;input type="text"&gt;</code> or you could omit the <code>type</code> attribute because <code>text</code> is the default value.</p> 
+            </div>
+          </li>
+          <li>
+            <p>How does the browser deal with line breaks in single line text fields?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>It removes those line breaks before sending the data to the server.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a password field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="password"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How is this different from a regular text input?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>It obscures the value entered with dots or asterisks.</p>
+                </div>
+              </li>
+              <li>
+                <p>How secure is this?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>It's sent in plain text so it's not secure at all unless it's sent over a secure connection (HTTPS).</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you create a form control which is invisible to the user but is still sent to the server along with the rest of the data once submitted?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="hidden"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What attributes are required with this input type?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>name</code> and <code>value</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you create a checkbox input?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="checkbox"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you create a radio button input?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="radio"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so a checkbox or radio button is checked by default?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Mark it with the boolean <code>checked</code> attribute.</p>
+            </div>
+          </li>
+          <li>
+            <p>What determines whether a checkbox or radio button input is sent when the form is submitted?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Their values are only sent if they are checked.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What happens if you send one with no value?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>It is sent with a <code>value</code> of <code>on</code>.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make it so that, out of a group of radio buttons, only one can be checked at a time?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Give them all the same <code>name</code> attribute value.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a button that sends data to the server?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>&lt;button type="submit"&gt;button&lt;/button&gt;</code> or you could omit the <code>type</code> attribute because <code>submit</code> is the default value. It also defaults to <code>submit</code> if you put an invalid value of <code>type</code>.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a button that resets all form widgets to their default values?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;button type="reset"&gt;button&lt;/button&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a button that has no automatic effect but can be customized with JavaScript?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;button type="button"&gt;button&lt;/button&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make an image button, which renders like an <code>&lt;img&gt;</code> but behaves like a submit button? What does this send to the server?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="image" src="some-image.png"&gt;</code></pre>
+              <p>This sends the X and Y coordinates of the click on the image, with the upper-left corner being the origin (0,0). The X-value key is the value of the <code>name</code> attribute followed by the string "<code>.x</code>". The Y-value key is the value of the <code>name</code> attribute followed by the string "<code>.y</code>".</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a file picker which accepts images?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="file" accept="image/*"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a file picker which accepts images captured directly by the device's camera?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="file" accept="image/*;capture=camera"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a file picker which accepts video captured directly by the device's camcorder?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="file" accept="video/*;capture=camcorder"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a file picker which accepts audio captured directly by the device's microphone?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="file" accept="audio/*;capture=microphone"&gt;</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="the-html5-input-types">The HTML5 input types</h3>
+        <ol>
+          <li>
+            <p>How do you make an email address field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="email"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How do you make it so multiple email addresses can be entered into the same input?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the boolean <code>multiple</code> attribute.</p>
+                </div>
+              </li>
+              <li>
+                <p>How does this change the UI on some devices?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Touch devices with dynamic keyboards will show a keypad with an @ symbol.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>Why should error validation be done on the server side when built-in client-side error validation exists?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Client-side validation is easy to turn off, so malicious users can easily send bad data through to your server.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a search field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="search"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a phone number field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="tel"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>Why is this type useful even when you don't need the user to enter a phone number?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Touch devices with dynamic keyboards will show a numeric keypad, which is useful for more than just phone numbers.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make a URL field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="url"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>What kind of validation does this provide?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The browser will report an error if no protocol was entered.</p>
+                </div>
+              </li>
+              <li>
+                <p>How does this change the UI on some devices?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Touch devices with dynamic keyboards will often display some or all of the colon, period, and forward slash as default keys.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make a numeric field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="number"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How does this change the UI on different devices?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Looks like a text field but allows only floating-point numbers, and usually provides a spinner to increase and decrease the value. On touch devices with dynamic keyboards, a numeric keyboard is displayed.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you constrain the minimum and maximum values?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>min</code> and <code>max</code> attributes.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you set the increment and decrement caused by pressing the spinner buttons?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>step</code> attribute.</p>
+                </div>
+                <ol>
+                  <li>
+                    <p>What is the default value of this?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>1</code>, meaning only whole numbers are valid</p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>How do you make it so it increments by one but allows floating point numbers?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>step="any"</code></p>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make a slider control?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="range"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How do you set the minimum, maximum, and increment values respectively for this?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>min</code>, <code>max</code>, and <code>step</code> attributes</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you make it so the current value is displayed?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use an <code>&lt;output&gt;&lt;/output&gt;</code> element whose <code>for</code> attribute is the <code>&lt;input&gt;</code>'s <code>id</code>. Then, the JavaScript:</p>
+                  <pre><code>const slider = document.querySelector(<em>range input</em>);
+const output = document.querySelector(<em>output element</em>);
+output.textContent = slider.value;
+slider.addEventListener('input', function(){
+  output.textContent = slider.value;
+});</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make a control to pick a date and time with no specific timezone information?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="datetime-local"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a control to pick a month and a year?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="month"&gt;</code></pre>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a control to pick a time value?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="time"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How does the way this displays differ from what returns?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Displays in a 12-hour format while the value returned is in 24-hour format</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make a control to pick a week number and a year?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="week"&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How is the first week of the year determined?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>The first week of the year contains the first Thursday of the year, which may not include the first day of the year or may include the last few days of the previous year.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you constrain the minimum, maximum, and increment values respectively for date/time values?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>min</code>, <code>max</code>, and <code>step</code> attributes</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a color picker control?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;input type="color"&gt;</code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3 id="other-form-controls">Other form controls</h3>
+        <ol>
+          <li>
+            <p>How do you make a multi-line text field?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;textarea&gt;&lt;/textarea&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How does the browser deal with hard line breaks in multi-line text fields?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>They are included when the data is submitted.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you give a multi-line text field some default text?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Put it in between the tags.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you size a multi-line text field? What is its default size?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>cols</code> attribute which is the width measured in average character widths, and <code>rows</code> which is the height in number of text rows.</p>
+                  <p>The default size is <code>cols="20"</code> and <code>rows="2"</code></p>
+                </div>
+              </li>
+              <li>
+                <p>How do you control how a multi-line text field wraps text? What values does this take and what is the default value?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>wrap</code> attribute whose values are as follows:</p>
+                  <dl>
+                    <dt><code>soft</code></dt>
+                    <dd>Rendered as wrapped but not submitted as wrapped</dd>
+                    <dt><code>hard</code></dt>
+                    <dd>Both rendered and submitted as wrapped</dd>
+                    <dt><code>off</code></dt>
+                    <dd>Stops wrapping</dd>
+                  </dl>
+                  <p>The default value is <code>soft</code>.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you use CSS to control the user's ability to resize a multi-line text field?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>resize</code> property whose values are as follows:</p>
+                  <dl>
+                    <dt><code>both</code></dt>
+                    <dd>The default. Allows resizing horizontally and vertically</dd>
+                    <dt><code>horizontal</code></dt>
+                    <dd>Allows resizing only horizontally</dd>
+                    <dt><code>vertical</code></dt>
+                    <dd>Allows resizing only vertical</dd>
+                    <dt><code>none</code></dt>
+                    <dd>Allows no resizing</dd>
+                    <dt><code>block</code> or <code>inline</code></dt>
+                    <dd>Allows resizing only in the block or inline direction</dd>
+                  </dl>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you make a select box whose options are "Banana", "Cherry", and "Lemon"?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <pre><code>&lt;select&gt;
+  &lt;option&gt;Banana&lt;/option&gt;
+  &lt;option&gt;Cherry&lt;/option&gt;
+  &lt;option&gt;Lemon&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            </div>
+            <ol>
+              <li>
+                <p>How do you set the default value of the select box?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the boolean <code>selected</code> attribute on that option.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you make a select box whose options are "Banana", "Cherry", "Lemon", "Carrot", "Eggplant", and "Potato", and the options are grouped into "fruits" and "vegetables"?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>&lt;select&gt;
+  &lt;optgroup label="fruits"&gt;
+    &lt;option&gt;Banana&lt;/option&gt;
+    &lt;option&gt;Cherry&lt;/option&gt;
+    &lt;option&gt;Lemon&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label="vegetables"&gt;
+    &lt;option&gt;Carrot&lt;/option&gt;
+    &lt;option&gt;Eggplant&lt;/option&gt;
+    &lt;option&gt;Potato&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+                </div>
+              </li>
+              <li>
+                <p>What determines which value is sent when the form is submitted?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>You can explicitly set the <code>value</code>s on the <code>&lt;option&gt;&lt;/option&gt;</code>s, but if you omit them, then the <code>value</code>s sent will just be the content of the <code>&lt;option&gt;&lt;/option&gt;</code>s.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you control how many options are visible when the select does not have focus?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the <code>size</code> attribute.</p>
+                </div>
+              </li>
+              <li>
+                <p>How do you make it so a user can select multiple options? How does this change the UI?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>Use the boolean <code>multiple</code> attribute on the <code>&lt;select&gt;&lt;/select&gt;</code> so users can select multiple options by holding down Cmd/Ctrl. If you do this, the values no longer display as drop-down content; instead they display in a list, with an optional <code>size</code> attribute determining the height.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you provide a form widget with suggested, autocompleted values?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>&lt;datalist&gt;&lt;/datalist&gt;</code> element with child <code>&lt;option&gt;&lt;/option&gt;</code>s whose <code>id</code> value is the related control's <code>list</code> value.</p>
+            </div>
+            <ol>
+              <li>
+                <p>How can you provide fallback for this to support older browsers like IE versions below 10?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <pre><code>&lt;datalist id="the-datalist"&gt;
+  &lt;select&gt;
+    &lt;option&gt;option 1&lt;/option&gt;
+    &lt;option&gt;option 2&lt;/option&gt;
+    &lt;option&gt;option 3&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/datalist&gt;</code></pre>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you give a slider tick marks above specific values?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Associate a <code>&lt;datalist&gt;&lt;/datalist&gt;</code> with the slider. Each child &lt;option&gt;&lt;/option&gt; and its value is a tick mark.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you give a color picker a customized palette of colors, while still making the full color palette available?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Associate a <code>&lt;datalist&gt;&lt;/datalist&gt;</code> with the color picker.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a progress bar with fallback?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>&lt;progress&gt;&lt;/progress&gt;</code> whose <code>max</code> value is the maximum value and whose <code>value</code> is the value. The fallback would be between the tags like "75/100".</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make a meter bar with fallback?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>&lt;meter&gt;&lt;/meter&gt;</code> whose range is divided like so:</p>
+              <ul>
+                <li>The lower part of the range is between the <code>min</code> and <code>low</code> values, inclusive</li>
+                <li>The medium part of the range is between the <code>low</code> and <code>high</code> values, exclusive</li>
+                <li>The higher part of the range is between the <code>high</code> and <code>max</code> values, inclusive</li>
+                <li>The <code>optimum</code> attribute defines the optimum value, to which the <code>value</code> is compared to determine how to color the bar</li>
+              </ul>
+              <p>The fallback works the same as with <code>&lt;progress&gt;&lt;/progress&gt;</code>.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="advanced-form-styling">Advanced form styling</h3>
+        <ol>
+          <li>
+            <p>Why are form controls often so difficult to style?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Historically, styling of web form controls was largely taken from the underlying operating system.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you stop a control from using system-level styling so that you can build up the styles yourself using CSS?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Set <code>appearance: none</code> and <code>-webkit-appearance: none</code></p>
+            </div>
+          </li>
+          <li>
+            <p>What should you remember about prefixed properties? Why?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>You should include both the prefixed and unprefixed versions because "prefixed" usually means "work in progress" so in the future browser vendors may come to a consensus to drop the prefix.</p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="ui-pseudoclasses">UI pseudo-classes</h3>
+        <ol>
+          <li>
+            <p>What pseudo-classes target elements that are being hovered over, focused, and activated respectively?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:hover</code>, <code>:focus</code>, and <code>:active</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so a user has to fill in a certain control in order for the form to successfully submit? How do you target these controls using CSS?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Mark it with the boolean <code>required</code> attribute. These are targeted by the <code>:required</code> pseudo-class.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you make it so a user does not have to fill in a certain control in order for the form to successfully submit? How do you target these controls with CSS?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Don't mark it with the boolean <code>required</code> attribute. These are targeted by the <code>:optional</code> pseudo-class.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you style controls based on whether their data is valid?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:valid</code> and <code>:invalid</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target controls whose current value is outside the range set by the <code>min</code> and <code>max</code> attributes?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:invalid</code> or <code>:out-of-range</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What if it is inside that range?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>:in-range</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you target controls with <code>disabled</code> set on them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:disabled</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What about controls without <code>disabled</code> set on them?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>:enabled</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you target controls that have their values submitted to the server but the user can't edit them?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:read-only</code> (targets elements with the boolean <code>readonly</code> attribute)</p>
+            </div>
+            <ol>
+              <li>
+                <p>What about controls that can be edited?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>read-write</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you target radio buttons and checkboxes that have the <code>checked</code> attribute?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:default</code></p>
+            </div>
+            <ol>
+              <li>
+                <p>What if the user unchecks them?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>:default</code> still applies</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>How do you target radio buttons and checkboxes that are checked?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:checked</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target radios/checkboxes that are neither checked nor unchecked? When would this be the case?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:indeterminate</code> which applies for:</p>
+              <ul>
+                <li><code>&lt;input type="radio"&gt;</code>s when all radio buttons in a same-named group are unchecked</li>
+                <li><code>&lt;input type="checkbox"</code> whose <code>indeterminate</code> property is set to <code>true</code> via JavaScript</li>
+                <li><code>&lt;progress&gt;&lt;/progress&gt;</code>s that have no value</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>How do you target elements that have received focus or contain elements that have received focus?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:focus-within</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target focused elements that have received focus via keyboard interaction (rather than touch or mouse)?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:focus-visible</code></p>
+            </div>
+          </li>
+          <li>
+            <p>How do you target <code>&lt;input&gt;</code>s and <code>&lt;textarea&gt;&lt;/textarea&gt;</code>s that have their placeholder text showing because the value of the element is empty?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p><code>:placeholder-shown</code></p>
+            </div>
+          </li>
+        </ol>
+        <h3 id="clientside-form-validation">Client-side form validation</h3>
+        <ol>
+          <li>
+            <p>How does built-in form validation differ from form validation done with JavaScript?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Built-in form validation has better performance, but isn't as customizable as JavaScript validation.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you specify the minimum and maximum length of textual data?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>minlength</code> and <code>maxlength</code> attributes.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you define the pattern that textual data needs to follow?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>pattern</code> attribute, which specifies a "regular expression".</p>
+            </div>
+          </li>
+          <li>
+            <p>What JavaScript API is used for form validation?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Constraint Validation API</p>
+            </div>
+            <ol>
+              <li>
+                <p>What property returns a localized message describing the validation constraints that the control doesn't satisfy (if any)? In what scenarios would this return an empty string?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>validationMessage</code></p>
+                </div>
+              </li>
+              <li>
+                <p>What property returns a <code>ValidityState</code> object containing several properties describing the validity of the element?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>validity</code></p>
+                </div>
+                <ol>
+                  <li>
+                    <p>What property returns <code>true</code> if the value does not match the specified <code>pattern</code>, and <code>false</code> if it does match?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>patternMismatch</code></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What property returns <code>true</code> if the value is longer than the specified <code>maxlength</code> value, and <code>false</code> if it's shorter or equal?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>tooLong</code></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What property returns <code>true</code> if the value is shorter than the specified <code>minlength</code> value, and <code>false</code> if it's greater than or equal?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>tooShort</code></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What property returns <code>true</code> if the value is greater than the specified <code>max</code> value, and <code>false</code> if it's less than or equal?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>rangeOverflow</code></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What property returns <code>true</code> if the value is less than the specified <code>min</code> value, and <code>false</code> if it's greater than or equal?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>rangeUnderflow</code></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What property returns <code>true</code> if the value is not in the required syntax (when <code>type</code> is <code>email</code> or <code>url</code>), and <code>false</code> if the syntax is correct?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>typeMismatch</code></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What property returns <code>true</code> if the value is valid and <code>false</code> if it's invalid?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>valid</code></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p>What property returns <code>true</code> if the element has a <code>required</code> attribute, but no value, and <code>false</code> if otherwise?</p>
+                    <button type="button">Show answer</button>
+                    <div class="answer" aria-hidden="true">
+                      <p><code>valueMissing</code></p>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>What property returns <code>true</code> if the element will be validated when the form is submitted, and <code>false</code> if otherwise?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>willValidate</code></p>
+                </div>
+              </li>
+              <li>
+                <p>What method returns <code>true</code> if the element has no validity problems, and <code>false</code> if otherwise?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>checkValidity()</code></p>
+                </div>
+              </li>
+              <li>
+                <p>What method adds a custom error message (in the parameters) to the elements and, if set, renders the element invalid?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>setCustomValidity(<em>the message</em>)</code></p>
+                </div>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h3 id="sending-form-data">Sending form data</h3>
+        <ol>
+          <li>
+            <p>How do you define where a form's data gets sent? What happens if you omit this?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>action</code> attribute whose value is a valid absolute or relative URL. If omitted, the data is sent to the URL of the page containing the form.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What happens if you specify an HTTP URL as opposed to an HTTPS one? What if the form is hosted on an HTTPS page?</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p>All browsers will display a security warning to the user each time they try to send the data because the data will not be encrypted. It will do this regardless of whether the form is hosted on an HTTP page or an HTTPS page.</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What does an HTTP request consist of?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>A header that contains a set of global metadata about the browser's capabilities, and a body that contains information necessary for the server to process the specific request.</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you define how a form's data is sent?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>Use the <code>method</code> attribute.</p>
+            </div>
+            <ol>
+              <li>
+                <p>What are the two main values this takes? Describe them.</p>
+                <button type="button">Show answer</button>
+                <div class="answer" aria-hidden="true">
+                  <p><code>GET</code>:</p>
+                  <ul>
+                    <li>Asks the server to send back a given resource</li>
+                    <li>HTTP request body is empty, data sent to the server is appended to the URL</li>
+                    <li>e.g. if <code>action="https://www.example.com"</code>, <code>https://www.example.com/?name=value&name2=value2</code></li>
+                  </ul>
+                  <p><code>POST</code>:</p>
+                  <ul>
+                    <li>Asks the server for a response that takes into account the data provided in the body of the HTTP request</li>
+                    <li>data appended to the HTTP request body, not the URL</li>
+                  </ul>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <p>What languages/frameworks are generally used for retrieving data on the server side?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <p>PHP, Python, Django for Python, Express for Node.js, Laravel for PHP, Ruby on Rails for Ruby</p>
+            </div>
+          </li>
+          <li>
+            <p>How do you send files on the client-side? Why is this necessary?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ol>
+                <li>Set <code>method</code> to <code>POST</code> because file content can't be put in URL parameters</li>
+                <li>Set the value of the <code>enctype</code> attribute (whose default value is <code>application/x-www-form-urlencoded</code>) to <code>multipart/form-data</code> because the data will be split into multiple parts, one for each file plus one for the text data included in the form body (if text is also entered into the form)</li>
+              </ol>
+              <p>This is necessary because files are binary data and HTTP is a text protocol.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="advanced-forms-articles">
+        <h2>Advanced forms articles</h2>
+        <h3 id="sending-forms-through-javascript">Sending forms through JavaScript</h3>
+        <ol>
+          <li>
+            <p>What are the three ways of sending form data with JavaScript?</p>
+            <button type="button">Show answer</button>
+            <div class="answer" aria-hidden="true">
+              <ul>
+                <li>Building an XHR manually</li>
+                <li>Using a standalone <code>FormData</code> object</li>
+                <li>Using <code>FormData</code> bound to a <code>&lt;form&gt;&lt;/form&gt;</code> element</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

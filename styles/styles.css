@@ -1,0 +1,417 @@
+main img {
+  max-width: 90%;
+  padding: 0.5em;
+  border: rgb(240,240,240) ridge 0.3em;
+  box-shadow: 0 0 0.5em lightgray inset;
+}
+
+html {
+  font-size: 13.5px;
+}
+main {
+  padding: 0 10vw 1em 10vw;
+  font-family: 'Times New Roman', sans-serif;
+  background-color: white;
+  background-image: url(../media/phone-border-bright.png);
+  background-size: contain;
+  background-repeat: repeat-y;
+}
+header {
+  background-image: url(../media/banner-edit-bright.png);
+  background-size: 100vw calc(1836/5629*100vw);
+  background-repeat: no-repeat;
+  height: 0;
+  padding-block-start: calc(1836/5629*100vw);
+}
+header img {width: 100%}
+header {font-size: 0;}
+nav > ul {
+  position: relative;
+  font-size: 1rem;
+  top: 0;
+  left: 0;
+  overflow-wrap: normal;
+  line-height: 1.5em;
+  margin: 0 calc(277/5664*100%);
+  padding-inline-start: 3em;
+  padding-inline-end: 2em;
+  background-color: white;
+  list-style-type: none;
+
+  z-index: 0;
+}
+/* so VoiceOver announces it as a list */
+nav > ul > li::before {content: "\200B"}
+
+main ol, main ul {
+  line-height: 1.4em;
+  padding-inline-start: 2.75em;
+}
+.answer + ol {border-inline-start: lightgray 0.1em solid;}
+.answer > ol, .answer > ul, .answer > dl, .answer > table {margin: 1em 0;}
+
+
+/* so the <ol>'s content doesn't overflow into its padding (as it would if the padding was set on the <ol>)  */
+nav > ul > li:first-child {
+  padding-block-start: 1.5em;
+}
+nav > ul > li:last-child {
+  padding-block-end: 1.5em;
+}
+
+
+body {
+  margin: 0;
+  background-color: white;
+}
+nav {
+  position: sticky;
+  top: 0;
+  background-image: url(../media/phone-top-bright.png);
+  background-size: 100vw calc(905/5664*100vw);
+  background-repeat: no-repeat;
+  height: 0;
+  padding-block-start: calc(905/5664*100vw);
+}  
+h1 {
+  font-family: 'zilla_slab_boldbold_italic', Helvetica, Arial, sans-serif;
+  text-align: center;
+  letter-spacing: 0.03em;
+  padding: 0.67em;
+  border-block-end: lightgray .01em solid;
+  background-image: url(../media/header-shadow.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  padding-block-start: calc(905/5664*100vw + 0.67em);
+  margin-block-start: calc(-905/5664*100vw);
+  margin-block-end: 0;
+}
+h2 {
+  font-family: 'zilla_slab_boldbold', Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding-block-start: calc(905/5664*100vw + 0.83em);
+  margin-block-start: calc(-905/5664*100vw);
+  margin-block-end: 0;
+}
+h3 {
+  font-family: 'zilla_slabsemibold', Helvetica, Arial, sans-serif;
+  padding-block-start: calc(905/5664*100vw + 1.064em);
+  margin-block-start: calc(-905/5664*100vw);
+}
+#contents > ol {margin: 1.064em 0;}
+footer {
+  background-image: url(../media/footer-bright.png), linear-gradient(0deg, lightgray 0%, white 100%);
+  background-size: 100vw calc(2735/2328*100vw);
+  background-repeat: no-repeat;
+  height: 0;
+  padding-block-start: calc(2735/2328*100%);
+  
+  position: relative;
+  z-index: 1;
+}
+
+/* link styles (only in lists so they don't target the contents button) */
+li a:link {
+  color: #3d7e9a;
+  text-decoration: none;
+}
+li a:visited {
+  color: #3d7e9a;
+  text-decoration: none;
+}
+li a:hover {
+  text-decoration: underline;
+}
+li a:active {
+  background-color: #285c76;
+  color: #fff;
+}
+
+/* description list styles */
+dt {font-weight: bold;}
+
+/* table styles */
+table, th, td{
+  padding: 0.5em;
+}
+th {text-align: center;}
+th, td {border: rgb(240,240,240) outset 0.2em;}
+table {
+  border-collapse: collapse;
+  box-shadow: 0 0 0.5em lightgray inset;
+  border: rgb(240,240,240) outset 0.3em;
+}
+
+/* hide answer/navbar content */
+.answer, nav > ul {
+  overflow: hidden;
+  height: 0;
+}
+
+
+/* full lines of code (single or multiple lines) are given horizontal scrollbars; pieces of code wrap anywhere */
+pre {overflow: auto;}
+code {overflow-wrap: anywhere;}
+
+
+/* (only for questions)
+1. 
+  a. 
+    i. 
+    ii. 
+  b. 
+2.  */
+ol > li > .answer ~ ol > li {list-style-type: lower-latin;}
+ol > li > .answer ~ ol > li > .answer ~ ol > li {list-style-type: lower-roman;}
+
+#nav {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  top: 0;
+  background-color: transparent;
+  width: 10vw;
+  height: 10vw;
+  border: none;
+  cursor: pointer;
+}
+nav > a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  width: 10vw;
+  height: 10vw;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+}
+main button {
+  display: block;
+  height: auto; 
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  border: lightgray 0.02em solid;
+  border-radius: 2em 0.75em;
+  box-shadow: 0 0 0.2em lightgray;
+  font-family: 'zilla_slab_regularregular', Helvetica, Arial, sans-serif;
+  background-color: rgb(240, 240, 240);
+  font-size: inherit;
+  cursor: pointer;
+}
+
+
+
+
+
+
+@font-face {
+  font-family: 'zilla_slab_boldbold_italic';
+  src: url('zillaslab-bolditalic-webfont.woff2') format('woff2'),
+       url('zillaslab-bolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'zilla_slab_boldbold';
+  src: url('zillaslab-bold-webfont.woff2') format('woff2'),
+       url('zillaslab-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'zilla_slabsemibold';
+  src: url('zillaslab-semibold-webfont.woff2') format('woff2'),
+       url('zillaslab-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'zilla_slab_regularregular';
+  src: url('zillaslab-regular-webfont.woff2') format('woff2'),
+       url('zillaslab-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (orientation: landscape) {
+  header {
+    background-image: url(../media/banner-long-bright.png);
+    background-size: 100vw calc(862/5068*100vw);
+    padding-block-start: calc(862/5068*100vw);
+  }
+  nav {
+    background-image: url(../media/landscape-frame-top.png);
+    background-size: 100vw calc(500/5449*100vw);
+    padding-block-start: calc(500/5449*100vw);
+  }  
+  main {
+    background-image: url(../media/landscape-frame-border.png);
+  }
+  h1 {
+    padding-block-start: calc(500/5449*100vw + 0.67em);
+    margin-block-start: calc(-500/5449*100vw);
+  }
+  h2 {
+    padding-block-start: calc(500/5449*100vw + 0.83em);
+    margin-block-start: calc(-500/5449*100vw);
+  }
+  h3 {
+    padding-block-start: calc(500/5449*100vw + 1.064em);
+    margin-block-start: calc(-500/5449*100vw);
+  }
+  footer {
+    background-image: url(../media/landscape-frame-footer.png);
+    background-size: 100vw calc(159/5449*100vw);
+    padding-block-start: calc(159/5449*100vw);
+  }
+  nav ul {
+    margin: 0 calc(158/5449*100%);
+  }
+  #nav {
+    top: calc(27/5449*100vw);
+    height: calc(284/5449*100vw);
+    left: 1vw;
+    width: 48vw;
+  }
+  nav > a {
+    top: calc(27/5449*100vw);
+    height: calc(284/5449*100vw);
+    right: 1vw;
+    width: 48vw;
+  }
+}
+
+
+
+/* tablet */
+@media screen and (min-width: 768px) {
+  html{font-size: 14px;}
+  body {width: 100vw;}
+  header {
+    background-image: url(../media/banner-long-bright.png);
+    background-size: 100vw calc(862/5068*100vw);
+    padding-block-start: calc(862/5068*100vw);
+  }
+  #nav {
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 48.5vw;
+    height: calc(170/5248*100vw);
+  }
+  nav > a {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 48.5vw;
+    height: calc(170/5248*100vw);
+  }
+  nav {
+    background-image: url(../media/laptop-top-bright.png);
+    background-size: 100vw calc(406/5248*100vw);
+    padding-block-start: calc(406/5248*100vw);
+  }
+  nav ul {
+    margin: 0 calc(116/5249*100vw);
+  }
+  main {background-image: url(../media/laptop-border.png);}
+  footer {
+    background-image: url(../media/laptop-bottom-bright.png);
+    height: 0;
+    background-size: 100vw calc(2275/5249*100vw);
+    padding-block-start: calc(2275/5249*100vw);
+  }
+  h1 {
+    padding-block-start: calc(406/5248*100vw + 0.67em);
+    margin-block-start: calc(-406/5248*100vw);
+  }
+  h2 {
+    padding-block-start: calc(406/5248*100vw + 0.83em);
+    margin-block-start: calc(-406/5248*100vw);
+  }
+  h3 {
+    padding-block-start: calc(406/5248*100vw + 1.064em);
+    margin-block-start: calc(-406/5248*100vw);
+  }
+}
+
+
+
+
+/* desktop */
+@media screen and (min-width: 1060px) {
+  html {
+    font-size: 13.5px;
+    background-image: linear-gradient(0deg, lightgray 0%, white 100%);
+    background-attachment: fixed;
+  }
+  body {
+    margin: auto;
+    width: 63rem;
+    box-shadow: 0 0 2em gray;
+  }
+  header {
+    background-size: 63rem calc(862/5068*63rem);
+    padding-block-start: calc(862/5068*63rem);
+  }
+  #nav {
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 30.5rem;
+    height: calc(170/5248*63rem);
+  }
+  nav > a {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 30.5rem;
+    height: calc(170/5248*63rem);
+  }
+  nav {
+    background-image: url(../media/laptop-top-bright.png);
+    background-size: 63rem calc(406/5248*63rem);
+    padding-block-start: calc(406/5248*63rem);
+  }
+  nav ul {
+    margin: 0 calc(116/5249*63rem);
+  }
+  main {background-image: url(../media/laptop-border.png);}
+  footer {
+    background-image: url(../media/laptop-bottom-bright.png);
+    height: 0;
+    background-size: 63rem calc(2275/5249*63rem);
+    padding-block-start: calc(2275/5249*63rem);
+  }
+  h1 {
+    padding-block-start: calc(406/5248*63rem + 0.67em);
+    margin-block-start: calc(-406/5248*63rem);
+  }
+  h2 {
+    padding-block-start: calc(406/5248*63rem + 0.83em);
+    margin-block-start: calc(-406/5248*63rem);
+  }
+  h3 {
+    padding-block-start: calc(406/5248*63rem + 1.064em);
+    margin-block-start: calc(-406/5248*63rem);
+  }
+}
+
+
+
+
