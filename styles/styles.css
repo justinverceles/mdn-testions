@@ -13,7 +13,7 @@ main {
   font-family: 'Times New Roman', sans-serif;
   background-color: white;
   background-image: url(../media/phone-border-bright.png);
-  background-size: contain;
+  background-size: 100vw;
   background-repeat: repeat-y;
 }
 header {
@@ -391,7 +391,10 @@ main button {
   nav ul {
     margin: 0 calc(116/5249*63rem);
   }
-  main {background-image: url(../media/laptop-border.png);}
+  main {
+    background-image: url(../media/laptop-border.png);
+    background-size: 63rem;
+  }
   footer {
     background-image: url(../media/laptop-bottom-bright.png);
     height: 0;
