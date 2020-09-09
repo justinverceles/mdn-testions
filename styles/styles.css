@@ -12,7 +12,7 @@ main {
   padding: 0 10vw 1em 10vw;
   font-family: 'Times New Roman', sans-serif;
   border-style: solid;
-  border-image: url(../media/phone-border-bright.png) 0% calc(290/5664*100%) / 0% calc(290/5664*100%) stretch;
+  border-image: url(../media/phone-border-bright.png) 0% calc(290/5664*100%) / 0% calc(290/5664*100%) repeat;
 }
 header {
   background-image: url(../media/banner-edit-bright.png);
@@ -262,7 +262,7 @@ main button {
     padding-block-start: calc(500/5449*100vw);
   }  
   main {
-    border-image: url(../media/landscape-frame-border.png) 0% calc(158/5449*100%) / 0% calc(158/5449*100%) stretch;
+    border-image: url(../media/landscape-frame-border.png) 0% calc(158/5449*100%) / 0% calc(158/5449*100%) repeat;
   }
   h1 {
     padding-block-start: calc(500/5449*100vw + 0.67em);
