@@ -11,11 +11,8 @@ html {
 main {
   padding: 0 10vw 1em 10vw;
   font-family: 'Times New Roman', sans-serif;
-  background-color: white;
-  background-image: url(../media/phone-border-bright.png);
-  background-size: 100vw;
-  background-repeat: repeat-y;
-}
+  border-style: solid;
+  border-image: url(../media/phone-border-bright.png) 0% calc(290/5664*100%) / 0% calc(290/5664*100%) stretch;
 header {
   background-image: url(../media/banner-edit-bright.png);
   background-size: 100vw calc(1836/5629*100vw);
@@ -264,7 +261,7 @@ main button {
     padding-block-start: calc(500/5449*100vw);
   }  
   main {
-    background-image: url(../media/landscape-frame-border.png);
+    border-image: url(../media/landscape-frame-border.png) 0% calc(158/5449*100%) / 0% calc(158/5449*100%) stretch;
   }
   h1 {
     padding-block-start: calc(500/5449*100vw + 0.67em);
@@ -331,7 +328,11 @@ main button {
   nav ul {
     margin: 0 calc(116/5249*100vw);
   }
-  main {background-image: url(../media/laptop-border.png);}
+  main {
+    border: none;
+    background-image: url(../media/laptop-border.png);
+    background-size: 100vw;
+  }
   footer {
     background-image: url(../media/laptop-bottom-bright.png);
     height: 0;
