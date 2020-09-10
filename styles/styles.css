@@ -250,7 +250,7 @@ main button {
 
 
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape), (min-aspect-ratio: 3/4) {
   header {
     background-image: url(../media/banner-long-bright.png);
     background-size: 100vw calc(862/5068*100vw);
