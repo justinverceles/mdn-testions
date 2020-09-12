@@ -10,7 +10,7 @@ html {
 }
 main {
   padding: 0 10vw 1em 10vw;
-  font-family: 'Times New Roman', sans-serif;
+  font-family: 'Times New Roman', "Times", sans-serif;
   border-style: solid;
   border-image: url(../media/phone-border-bright.png) 0% calc(290/5664*100%) / 0% calc(290/5664*100%) repeat;
 }
