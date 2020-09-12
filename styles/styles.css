@@ -186,7 +186,6 @@ nav > a {
 button {
   appearance: none;
   -webkit-appearance: none;
-  font-family: inherit;
 }
 main button {
   display: block;
@@ -198,7 +197,7 @@ main button {
   box-shadow: 0 0 0.2em lightgray;
   font-family: 'zilla_slab_regularregular', Helvetica, Arial, sans-serif;
   background-color: rgb(240, 240, 240);
-  font-size: inherit;
+  font-size: 100%;
   cursor: pointer;
 }
 
