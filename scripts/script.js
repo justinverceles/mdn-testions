@@ -49,17 +49,24 @@ answButtons.forEach(button => {
 });
 
 
-/*  (only for contents) 
+/*  (for contents) 
 1. 
   1.1.
   1.2.
 2.
-  2.1  
+  2.1.  
+
+and puts each of those heading numbers before the headings
 */
 const contents = document.querySelectorAll('#contents > ol > li');
 for (let i = 0; i < contents.length; i++) {
+  document.querySelector(`${contents[i].firstElementChild.getAttribute('href')}`).firstElementChild.textContent = 
+    `${i+1}. ${document.querySelector(`${contents[i].firstElementChild.getAttribute('href')}`).firstElementChild.textContent}`;
   for (let j = 0; j < contents[i].lastElementChild.children.length; j++) {
     contents[i].lastElementChild.children[j].setAttribute('style', `list-style-type: '${i+1}.${j+1}. '`);
+    console.log(document.querySelector(contents[i].lastElementChild.children[j].firstElementChild.getAttribute('href')).textContent);
+    document.querySelector(contents[i].lastElementChild.children[j].firstElementChild.getAttribute('href')).textContent = 
+      `${i+1}.${j+1}. ${document.querySelector(contents[i].lastElementChild.children[j].firstElementChild.getAttribute('href')).textContent}`;
   }
 }
 
