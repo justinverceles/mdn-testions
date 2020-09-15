@@ -64,7 +64,6 @@ for (let i = 0; i < contents.length; i++) {
     `${i+1}. ${document.querySelector(`${contents[i].firstElementChild.getAttribute('href')}`).firstElementChild.textContent}`;
   for (let j = 0; j < contents[i].lastElementChild.children.length; j++) {
     contents[i].lastElementChild.children[j].setAttribute('style', `list-style-type: '${i+1}.${j+1}. '`);
-    console.log(document.querySelector(contents[i].lastElementChild.children[j].firstElementChild.getAttribute('href')).textContent);
     document.querySelector(contents[i].lastElementChild.children[j].firstElementChild.getAttribute('href')).textContent = 
       `${i+1}.${j+1}. ${document.querySelector(contents[i].lastElementChild.children[j].firstElementChild.getAttribute('href')).textContent}`;
   }
