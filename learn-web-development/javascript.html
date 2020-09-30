@@ -1569,7 +1569,7 @@ let myGreeting = setTimeout(sayHi, 2000, "Mr. Universe");</code></pre>
                 <p>Write the code that, every second, displays the time as a string in the UI as part of the text content of an element with the id <code>demo</code>.</p>
                 <button type="button">Show answer</button>
                 <div class="answer" aria-hidden="true">
-                  <pre><code>funtion displayTime() {
+                  <pre><code>function displayTime() {
   let date = new Date();
   let time = date.toLocaleTimeString();
   document.getElementById('demo').textContent = time;                  
